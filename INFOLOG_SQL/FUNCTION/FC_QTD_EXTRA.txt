@@ -1,0 +1,25 @@
+CREATE OR REPLACE
+FUNCTION FC_QTD_EXTRA(PCTL_VIA NUMBER)
+RETURN NUMBER
+AS
+CURSOR
+ EXTRA IS
+     SELECT ctl_plvia, count(*) as qtd_extra
+       FROM SUPERVISOR.ROTEIRO_MOTORISTA
+      WHERE ctl_plvia = PCTL_VIA
+        AND ctl_parad = 7
+        AND sit_fase_rea = 'R'
+        AND sta_telef = 'S'
+      GROUP BY ctl_plvia;
+FEXTRA EXTRA%ROWTYPE;
+BEGIN
+ OPEN EXTRA;
+ FETCH EXTRA INTO FEXTRA;
+ IF EXTRA%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ CLOSE EXTRA;
+ RETURN(FEXTRA.qtd_extra);
+END;
+/
+

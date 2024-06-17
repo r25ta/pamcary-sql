@@ -1,0 +1,50 @@
+CONTADOR  NUMBER;
+MENOR     NUMBER;
+DISTANCIA NUMBER;
+RETORNO   VARCHAR2(10);
+
+CONTADOR := 0;
+MENOR    := 0;
+DISTANCIA:= 0;
+RETORNO  := "";
+---------------------------------------------------------------------------------------------------------
+--  TABELA: ENDERECO_VINCULADO  -------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+IF TIPO_RETORNO = 1 THEN
+	OPEN C2(NUM_LATIT_MENOR, NUM_LATIT_MAIOR, NUM_LONGI_MENOR, NUM_LONGI_MAIOR);
+	  LOOP
+	    FETCH C2 INTO RC2;
+	      IF C2%NOTFOUND THEN
+		 EXIT;
+	      END IF;
+---------------------------------------------------------------------------------------------------------
+	      DISTANCIA = FC_DISTANCIA_PONTOS_INFOLOG(DES_LATIT, DES_LONGI, RC2.DES_LATIT, RC2.DES_LONGI);
+---------------------------------------------------------------------------------------------------------
+	      IF DISTANCIA < MENOR OR CONTADOR = 0 THEN
+		       MENOR := DISTANCIA;
+		       RETORNO := RC2.CODIGO;
+	      END IF;
+	      CONTADOR := CONTADOR + 1;
+	  END LOOP;
+	CLOSE C2;
+---------------------------------------------------------------------------------------------------------
+--  TABELA: PRACA  --------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+ELSE
+	OPEN C3(NUM_LATIT_MENOR, NUM_LATIT_MAIOR, NUM_LONGI_MENOR, NUM_LONGI_MAIOR);
+	  LOOP
+	    FETCH C3 INTO RC3;
+	      IF C3%NOTFOUND THEN
+		 EXIT;
+	      END IF;
+---------------------------------------------------------------------------------------------------------
+    	      DISTANCIA = FC_DISTANCIA_PONTOS_INFOLOG(DES_LATIT, DES_LONGI, RC3.NUM_LATIT, RC3.NUM_LONGI);
+---------------------------------------------------------------------------------------------------------
+	      IF DISTANCIA < MENOR OR CONTADOR = 0 THEN
+		       MENOR := DISTANCIA;
+		 RETORNO := RC3.CODIGO;
+	      END IF;
+	      CONTADOR := CONTADOR + 1;
+	  END LOOP;
+	CLOSE C3;
+END IF;

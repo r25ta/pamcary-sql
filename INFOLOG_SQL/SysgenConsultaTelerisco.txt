@@ -1,0 +1,15 @@
+select fc_vinculado_nom_guerr(ctl_embar) As Embarcador,
+       fc_vinculado_nom_guerr(ctl_trnsp) As Transportadora,
+       cpf, motorista, placa_veiculo, placa_carreta
+from consulta
+where to_char(data_cons,'yyyymmdd') = '20030108'
+  and ctl_embar is not null
+  and ctl_trnsp is not null
+order by embarcador, transportadora  
+
+
+
+
+select fc_vinculado_nom_guerr(ctl_embar) Embarcador, fc_vinculado_nom_guerr(ctl_trnsp) Transportadora, cpf, motorista, placa_veiculo, placa_carreta from consulta where to_char(data_cons,'yyyymmdd') = '20030108' and ctl_embar is not null and ctl_trnsp is not null order by embarcador, transportadora  
+
+select  fc_vinculado_nom_guerr(ctl_trnsp) Transportadora, cpf, motorista, placa_veiculo, placa_carreta from consulta where to_char(data_cons,'yyyymmdd') = '20030108' and ctl_embar is not null and ctl_trnsp is not null order by transportadora  

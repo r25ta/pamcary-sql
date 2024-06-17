@@ -1,0 +1,27 @@
+SELECT PV.ctl_plvia, PV.sit_plvia, TP.sig_parad, RM.sit_fase_rea
+FROM PLANO_VIAGEM PV, TIPO_PARADA TP, ROTEIRO_MOTORISTA RM
+WHERE PV.ctl_empre_equ = 2
+AND PV.sit_plvia = 4
+AND PV.ctl_user = 1
+AND TP.sig_parad  = 'IV'
+AND RM.sit_fase_rea = 'S'
+AND RM.ctl_plvia = PV.ctl_plvia
+AND RM.ctl_parad = TP.ctl_parad
+AND to_char(PV.dhr_inclu,'yyyymmdd') >= '20020601'
+
+
+**** alteracao dos pv controlsat ****
+
+update plano_viagem set
+sit_plvia = 0
+where ctl_plvia IN (SELECT PV.ctl_plvia
+                    FROM PLANO_VIAGEM PV, TIPO_PARADA TP, ROTEIRO_MOTORISTA RM
+                    WHERE PV.ctl_empre_equ = 2
+                    AND PV.sit_plvia = 4
+                    AND PV.ctl_user = 1
+                    AND TP.sig_parad  = 'IV'
+                    AND RM.sit_fase_rea = 'S'
+                    AND RM.ctl_plvia = PV.ctl_plvia
+                    AND RM.ctl_parad = TP.ctl_parad
+                    AND to_char(PV.dhr_inclu,'yyyymmdd') >= '20020601')
+

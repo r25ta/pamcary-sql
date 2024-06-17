@@ -1,0 +1,35 @@
+CREATE OR REPLACE
+  PROCEDURE SUPERVISOR.PC_EMAIL_SOLICITACAO_ENDERECO (
+             PCTL_REMET NUMBER, PCTL_DESTI NUMBER, PSTA_ENVIO NUMBER, PCTL_SOLIC_ENV NUMBER )
+AS
+I_email     varchar2(100);
+i           number := 0;
+--
+CURSOR
+ TEMAIL IS
+ SELECT distinct(LOWER(NVL(des_comun_vin, ' ' ))) AS des_comun
+	 FROM RELAC_CONTATO RC, COMUNICACAO_RELAC_CONTATO CRC, 
+	      DADO_ADICIONAL_EMBARC_CLIENTE DAEC
+	 WHERE DAEC.ctl_remet = PCTL_REMET
+	 AND DAEC.ctl_desti = PCTL_DESTI
+	 AND DAEC.sta_envio >= PSTA_ENVIO
+	 AND DAEC.ctl_remet = RC.ctl_vincd
+	 AND DAEC.ctl_desti = RC.ctl_vincd_rld 
+	 AND RC.ctl_relac_con = CRC.ctl_relac_con
+	 AND CRC.tip_comun = 7;
+--
+BEGIN
+--
+ FOR i IN TEMAIL LOOP
+--
+   IF i.des_comun != ' ' THEN
+      I_email := i.des_comun;
+--
+      INSERT INTO EMAIL_SOLICITACAO_ENDERECO ( CTL_SOLIC_END, DES_EMAIL_END, CTL_SOLIC_ENV )
+      VALUES ( SQ_CTL_SOLIC_END.nextval, TO_MULTI_BYTE(I_email) , PCTL_SOLIC_ENV );
+--
+   END IF;
+--
+ END LOOP;
+--
+END;

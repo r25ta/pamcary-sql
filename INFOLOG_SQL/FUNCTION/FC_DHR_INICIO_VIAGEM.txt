@@ -1,0 +1,22 @@
+CREATE OR REPLACE
+FUNCTION            FC_DHR_INICIO_VIAGEM (PCTL_VIA NUMBER)
+RETURN DATE
+AS
+CURSOR
+ IV IS
+ SELECT dhr_efeti_rea AS dhr_viage_ini
+   FROM SUPERVISOR.ROTEIRO_MOTORISTA
+  WHERE sit_fase_rea IN ( 'R', 'T' )
+    AND ctl_parad = 10
+    AND ctl_plvia = PCTL_VIA;
+ IVR IV%ROWTYPE;
+BEGIN
+ OPEN IV;
+ FETCH IV INTO IVR;
+ IF IV%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ CLOSE IV;
+ RETURN(IVR.dhr_viage_ini);
+END;
+/

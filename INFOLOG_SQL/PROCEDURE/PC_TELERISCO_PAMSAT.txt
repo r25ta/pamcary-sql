@@ -1,0 +1,67 @@
+CREATE OR REPLACE PROCEDURE PC_MNTCARGA_TELERISCO
+AS
+ A_mntcarga_telerisco UTL_FILE.FILE_TYPE;
+ I_buffer varchar2(1000);
+ I_file   varchar2(30);
+ I_slash  varchar2(2) := '/';
+ I_cod_csn       varchar2(10);
+ I_num_load      varchar2(10);
+ I_DhrInicioReal varchar2(19);
+ i               number := 0 ;
+
+--CURSOR C0 is
+ --SELECT DATA_REF
+   --FROM CSN_DATA;
+
+ --RC0 C0%ROWTYPE;
+
+CURSOR C1 is
+ SELECT FC_VINCULADO_DOCUMENTO(MPV.ctl_motot, 2) AS CPF,
+        FC_VINCULADO_NOM_GUERR(MPV.ctl_motot) AS NomeMotorista,
+        PV.ctl_trnsp AS CodTransportadora,
+        FC_VINCULADO_DOCUMENTO(PV.ctl_trnsp, 1) AS CnpjTransportadora,
+        FC_VINCULADO_NOM_GUERR(PV.ctl_trnsp) AS NomeTransportadora,
+        FC_PLACA_VEICULO(PV.ctl_plvia) AS NumPlaca,
+        FC_VINCULADO_ENDERECO_UF(PV.ctl_remet,1) AS Origem,
+        DPV.ctl_desti AS CtlDestino,
+        FC_VINCULADO_ENDERECO_UF(DPV.ctl_desti,1) AS Destino,
+        TO_CHAR(PV.dhr_plvia_ini,'dd/mm/yyyy') AS dat_inici_prv,
+        TO_CHAR(FC_DHR_INICIO_VIAGEM(pv.ctl_plvia),'dd/mm/yyyy') AS DhrInicioReal,
+        TO_CHAR(PV.dhr_inclu,'dd/mm/yyyy') AS dat_inclusao 
+   FROM PLANO_VIAGEM PV,
+        MOTORISTA_PLANO_VIAGEM MPV,
+        DESTINATARIO_PLANO_VIAGEM DPV
+  WHERE PV.ctl_plvia = MPV.ctl_plvia
+    AND PV.ctl_plvia = DPV.ctl_plvia
+    AND PV.sit_plvia <> 10
+    AND TO_CHAR(PV.dhr_inclu,'yyyymmdd') = '20020901' ;
+
+BEGIN
+  --OPEN C0;
+  --FETCH C0 INTO RC0;
+  --CLOSE C0;
+  --UPDATE CSN_DATA SET DATA_REF=SYSDATE;
+  --COMMIT;
+
+  SELECT 'MTR'||TO_CHAR(sysdate,'DDMMYYYYHH24MISS')||'.TXT'
+    INTO I_file
+    FROM DUAL;
+
+  A_mntcarga_telerisco := UTL_FILE.FOPEN('C:\',I_file,'w');
+  FOR i IN C1 LOOP
+    IF i.CtlDestino = 40003
+    
+    I_DhrInicioReal = i.DhrInicioReal;   
+    IF i.DhrInicioReal = "" THEN I_DhrInicioReal = i.DhrInicioPrevisto;
+     
+    
+    IF i.CpfMotorista != "" THEN 
+       I_buffer := i.CpfMotorista||';'||i.num_load||';'||I_DhrInicioReal;
+       UTL_FILE.put_line(A_mntcarga_telerisco, I_buffer);
+    END IF;  
+  
+  END LOOP;
+
+  UTL_FILE.FCLOSE(A_mntcarga_telerisco);
+
+END;

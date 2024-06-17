@@ -1,0 +1,55 @@
+select count(1) from monitora_cartao_detalhe
+where sta_procs = 'N'
+and ctl_plvia <> 0
+
+
+select * from tipo_operacao
+
+select fc_vinculado_nom_guerr(ctl_vincd), p.* from perfil_parametro_infolog p
+
+select * from tipo_operacao
+where ctl_opera_tip = 183
+
+--cometa 12680
+
+select * from modelo_plano_viagem
+select * from tipo_rastreamento
+
+select * from tipo_operacao_viagem
+
+
+select * from plano_viagem
+where ctl_vincd = 12680
+
+select fc_vinculado_nom_guerr(ctl_vincd) as mestre, fc_vinculado_nom_guerr(ctl_vincd_rld) as relacionado, r.*
+from relacionamento_vinculado r
+where ctl_vincd = 12680
+and tip_relac = 2
+
+select * from doc_vinculado
+where ctl_vincd = 271150
+
+select * from tipo_relacionamento
+
+/*RECUPERA TRANSPORTADORA*/
+SELECT DISTINCT RV.ctl_vincd_rld, NVL(V.nom_guerr,' ') AS nom_guerr, 
+        NVL(V.nom_vincd,' ') AS nom_vincd, NVL(DV.cod_docum,'000000000000000') AS cod_docum 
+        FROM RELACIONAMENTO_VINCULADO RV, TIPO_RELACIONAMENTO TR, DOC_VINCULADO DV, VINCULADO V 
+        WHERE DV.ctl_vincd = RV.ctl_vincd_rld 
+        AND RV.ctl_vincd_rld = V.ctl_vincd 
+        --TIPO DE RELACIONAMENTO EMBARCADOR x TRANSPORTADORA
+        -- 1 = EMBARCADOR X CLIENTE COMPRADOR
+        -- 2 = EMBARCADOR X TRANSPORTADORA
+        -- 3 = EMBARCADOR X ORIGEM EMBARQUE
+        -- 4 = EMBARCADOR X USUARIO INTERNET
+        AND TR.tip_relac = 2
+        --INFORMA CODIGO MESTRE DO EMBARCADOR
+	    AND RV.ctl_vincd = 12680
+        --INFORMAR CNPJ TRANSP
+	    AND DV.cod_docum = '010970887000285'
+
+
+         
+        
+SELECT * FROM MODELO_PLANO_VIAGEM
+SELECT * FROM PLANO_VIAGEM

@@ -1,0 +1,67 @@
+	  'seleciona o endereco eletronico dos destinatários
+	  strSQL = " SELECT V.ctl_vincd, V.nom_guerr, EEM.ctl_ender_sgp, ESG.nom_ender_sgp," _ 
+	         & " EG.nom_grupo, ECE.des_email, ECE.nom_email" _ 
+		     & " FROM VINCULADO V, ESTRUTURA_ESTACAO_MONIT EEM, EMAIL_SUB_GRUPO ESG," _
+		     & " EMAIL_GRUPO EG, EMAIL_CATALOGO_ENDERECO ECE, EMAIL_SUB_GRUPO_ENDERECO ESGE" _
+		     & " WHERE EEM.ctl_trnsp = V.ctl_vincd" _
+		     & " AND EEM.ctl_ender_sgp = ESG.ctl_ender_sgp" _
+		     & " AND ESG.ctl_ender_sgp = ESGE.ctl_ender_sgp" _ 
+		     & " AND ESG.ctl_grupo = EG.ctl_grupo" _
+		     & " AND ESGE.ctl_email = ECE.ctl_email" _
+			 & " AND V.nom_guerr = '" & rsPLANO("nom_trnsp") &"'"
+    
+      rsEMAIL.Open strSQL, conBD, , , adCmdText	
+	  rsEMAIL.ActiveConnection = Nothing
+        
+	  'Response.Write strSQL
+
+      'endereco eletronico dos destinatarios
+      if rsEMAIL.EOF then
+		  strLINHA = "<table border='0' width='100%'>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+      
+		  strLINHA = "<tr>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "<td colspan=6 bgColor='darkblue' width='100%' height='15' nowrap ><small><small><strong><font color='white' face='Verdana, Arial'>&nbsp;ENDEREÇO ELETRÔNICO</font></strong></small></small></td>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "</tr>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "</table>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		  
+		  
+		
+      else
+		do while rsEMAIL.EOF      
+		  strLINHA = "<table border='0' width='100%'>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+      
+		  strLINHA = "<tr>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "<td colspan=6 bgColor='darkblue' width='100%' height='15' nowrap ><small><small><strong><font color='white' face='Verdana, Arial'>&nbsp;ENDEREÇO ELETRÔNICO</font></strong></small></small></td>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "</tr>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		      
+		  strLINHA = "</table>"
+		  Response.Write strLINHA
+		  Session("CorpoEmail") = Session("CorpoEmail") & strLINHA 
+		
+			rsEMAIL.MoveNext
+		
+		loop
+	  endif    

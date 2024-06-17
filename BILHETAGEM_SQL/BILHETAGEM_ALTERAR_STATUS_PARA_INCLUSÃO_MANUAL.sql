@@ -1,0 +1,21 @@
+
+/*ALTERA플O DE STATUS DE PROCESSAMENTO DA FATURA SEM LIGA플O COM AVERBA플O*/
+
+/* CONSULTAR MOVIMENTO */
+SELECT * from bilhet.TBIL_MOVIM_FATURA 
+  where SEQ_NUMER_FAT in (7000154137, 7000154138)
+
+/* CONSULTAR */
+select * from bilhet.tbil_fatura
+  where SEQ_NUMER_FAT in (7000154137, 7000154138)
+
+/* ALTERAR SITUA플O DA FATURA DE PROCESSADO PARA INCLUSAO MANUAL 
+2 - Processada
+4- Inclusao Manual
+*/
+update bilhet.tbil_fatura set SIT_FATUR = 4 
+  WHERE SIT_FATUR = 2 
+  and SEQ_NUMER_FAT in (7000154137, 7000154138)
+    
+    
+commit

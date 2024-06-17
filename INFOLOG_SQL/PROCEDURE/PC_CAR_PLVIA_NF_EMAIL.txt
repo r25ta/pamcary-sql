@@ -1,0 +1,158 @@
+CREATE OR REPLACE PROCEDURE PC_CAR_PLVIA_NF_EMAIL
+AS
+  Arq_execute          UTL_FILE.FILE_TYPE;
+--
+  I_ctl_solic_env      NUMBER(10);
+  I_cabec_email        LONG;
+  I_cabec_client       LONG;
+  I_detal_email        LONG;
+  I_email_completo     LONG;
+  I_rodap_email        LONG;
+  I_string             LONG;
+--  
+  I_ctl_plvia	       NUMBER(10);
+  I_nome_destino       VARCHAR2(30);       
+  I_ctl_desti          NUMBER(10);       
+  I_ctl_remet          NUMBER(10);       
+--
+  I_NOM_APLIC_SOL  VARCHAR2(30); 
+  I_DES_EMAIL_RES  VARCHAR2(100);
+  I_DES_EMAIL_ASS  VARCHAR2(100);
+  I_DES_EMAIL_TXT  LONG ;
+  I_COD_USER       VARCHAR2(30);
+  I_CTL_ENDER_SGP  NUMBER(10);
+-- 
+CURSOR nPLVIA is
+	SELECT ctl_plvia,
+	       ctl_desti,	
+	       ctl_trnsp,
+	       NVL(FC_VINCULADO_NOM_GUERR(ctl_trnsp),'') AS nom_trnsp,
+	       NVL(FC_VINCULADO_NOM_GUERR(ctl_desti),'')AS nom_desti,
+	       TO_CHAR(FC_DHR_INICIO_VIAGEM(ctl_plvia), 'dd/mm/yyyy hh24:mi:ss') AS dhr_inici_rea,
+	       TO_CHAR(dhr_inclu, 'dd/mm/yyyy hh24:mi:ss') AS dhr_inclu
+	FROM PLANO_VIAGEM
+	WHERE ctl_plvia IN (
+   				SELECT to_char(ctl_plvia)
+				FROM PLANO_VIAGEM 
+   				WHERE ctl_opera_tip = 3 
+   				AND sit_plvia <> 10
+				MINUS
+   					SELECT num_plvia FROM nota_fiscal)
+   				ORDER BY nom_desti;
+--
+--Processamento
+--
+ cPLVIA nPLVIA%ROWTYPE;  
+--
+ BEGIN
+--
+  I_NOM_APLIC_SOL  := 'Planos de Viagens sem N.F.';
+  I_DES_EMAIL_RES  := 'ronaldo.conceicao@pamcary.com.br';
+  I_DES_EMAIL_ASS  := 'Boletim Pamcary: Planos de Viagens sem Notas Fiscais';
+  I_DES_EMAIL_TXT  := ' ';
+  I_COD_USER       := 'PC_CAR_PLVIA_NF_EMAIL';
+  I_detal_email    := '';
+  I_email_completo := '';
+--
+  I_cabec_email := '<html>'
+	|| '<HEAD>'
+	|| '<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">'
+	|| '<TITLE>PAMCARY Logística e Gerenciamento de Risco</title>'
+	|| '</HEAD>'
+	|| '<BODY topmargin="0" leftmargin="0" border="0">'
+	||  '<DIV>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD style="WIDTH: 70%" width="70%"><FONT face=Verdana size=2>'
+	||  '    <STRONG>::</STRONG></FONT></TD>'
+	||  '   <TD style="WIDTH: 30%" width="30%"></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+	||  '<DIV align=left>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD bgColor="#f2fdff">'
+	||  '    <FONT face=Verdana size=2><P align="center"><STRONG>Relacao de Plano(s) de Viagem(s) sem Nota(s) Fiscal(is)</STRONG></FONT></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>';
+--
+  I_rodap_email := '</BODY>'
+ 	||  '</html>';
+--
+  OPEN nPLVIA;
+  FETCH nPLVIA INTO cPLVIA;
+-- Loop Simples
+  LOOP
+    EXIT WHEN nPLVIA%NOTFOUND;
+--
+    I_ctl_desti       := cPLVIA.ctl_desti;
+    I_nome_destino    := cPLVIA.nom_desti;
+--
+    I_cabec_client := '<DIV>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD style="WIDTH: 70%" width="70%"><FONT face=Verdana size=2>'
+	||  '    <STRONG>::' || I_nome_destino || '</STRONG></FONT></TD>'
+	||  '   <TD style="WIDTH: 30%" width="30%"></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+    	||  ' <TABLE border=0 cellPadding=1 cellSpacing=2 width="100%">'
+        ||  '  <TBODY>'
+	||  '   <TR>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 10%" width=10%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Plano de Viagem</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 45%" width=45%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Transportadora</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 20%" width=20%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>"Data/Hora Inicio de Viagem Real"</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 25%" width=25% colspan=2><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>"Data/Hora de Inclusao"</FONT></STRONG></P></TD>'
+	||  '   </TR>';
+--    
+    I_string := '';
+    I_detal_email := '';	
+--    
+--    WHILE I_ctl_desti = cPLVIA.ctl_desti LOOP	    	    
+  
+    LOOP
+      EXIT WHEN I_ctl_desti <> cPLVIA.ctl_desti;  	 	
+--    
+      I_string := '   <TR>'
+  	||  '    <TD bgColor=#F5F7FC style="WIDTH: 10%" width=10%><FONT face="MS Sans Serif" size=1>' || cPLVIA.ctl_plvia || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC style="WIDTH: 45%" width=45%><FONT face="MS Sans Serif" size=1>' || cPLVIA.nom_trnsp || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC style="WIDTH: 20%" width=20%><FONT face="MS Sans Serif" size=1>' || cPLVIA.dhr_inici_rea || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC style="WIDTH: 25%" width=25%><FONT face="MS Sans Serif" size=1>' || cPLVIA.dhr_inclu || '</FONT></TD>'
+	||  '   </TR>';
+--	
+	I_detal_email := I_detal_email || I_string;
+--	
+    END LOOP;   
+    --Criação do HTML     
+    I_email_completo := I_email_completo || I_cabec_client || I_detal_email || '</TBODY> </TABLE>';
+--  
+  END LOOP;
+CLOSE nPLVIA;
+--
+  I_ctl_solic_env := FC_EMAIL_CTL_SOLIC_ENV;
+  I_DES_EMAIL_TXT := I_cabec_email ||I_email_completo || I_rodap_email;
+--
+  PC_EMAIL_SOLICITACAO_INCLUIR ( I_ctl_solic_env,
+                                 I_NOM_APLIC_SOL,
+			         I_DES_EMAIL_RES,
+				 I_DES_EMAIL_ASS,
+				 I_DES_EMAIL_TXT,
+				 I_COD_USER,
+				 Null );
+--
+  PC_EMAIL_ENDERECO_INCLUIR ( I_ctl_solic_env,
+                              'ronaldo.conceicao@pamcary.com.br' );
+--
+--PC_EMAIL_SOLICITACAO_ENDERECO ( I_ctl_remet,
+--                                I_ctl_desti, 
+--                                0,
+--                                I_ctl_solic_env );
+--
+END PC_CAR_PLVIA_NF_EMAIL;

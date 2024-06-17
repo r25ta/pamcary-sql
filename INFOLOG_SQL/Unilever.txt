@@ -1,0 +1,16 @@
+SELECT PV.ctl_plvia, fc_id_veiculo(PV.ctl_plvia) AS num_mct,
+to_char(TL.dhr_event,'DD/MM/YYYY HH24:MI:SS') AS dhr_event,TL.ctl_event
+FROM PLANO_VIAGEM PV, TARIFACAO_LOGISTICA TL
+WHERE PV.ctl_plvia = 290287
+AND PV.ctl_plvia = TL.ctl_plvia
+GROUP BY PV.ctl_plvia, dhr_event,TL.ctl_event
+
+SELECT num_mct, num_macro, to_char(dhr_event,'DD/MM/YYYY HH24:MI:SS') AS dhr_event,
+des_local AS PLACA_FROTA, des_latit, des_longi
+FROM MCT_MACRO
+WHERE num_mct = 793179
+AND num_macro = 41
+ORDER BY dhr_event DESC
+
+INSERT INTO TARIFACAO_LOGISTICA VALUES(
+290287,TO_DATE('30/10/2002 04:12:01','DD/MM/YYYY HH24:MI:SS'),16)

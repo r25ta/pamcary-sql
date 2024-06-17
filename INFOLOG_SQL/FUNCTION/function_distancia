@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Lobo;Luiz Carlos
+FN:Luiz Carlos Lobo
+ORG:Pamcary
+TITLE:Analista de Sistemas
+TEL;WORK;VOICE:0xx11 3889-1325
+TEL;WORK;FAX:0xx11 3889-1199
+EMAIL;PREF;INTERNET:luiz.lobo@pamcary.com.br
+REV:20020916T125253Z
+END:VCARD

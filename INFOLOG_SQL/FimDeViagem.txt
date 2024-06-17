@@ -1,0 +1,16 @@
+SELECT pv.ctl_plvia, fc_id_veiculo(pv.ctl_plvia) As id_terminal,
+       fc_vinculado_nom_guerr(dpv.ctl_desti) As destinatario,
+       to_char(fc_dhr_inicio_viagem(pv.ctl_plvia),'dd/mm/yyyy hh24:mi:ss') As dhr_plvia_ini,
+       to_char(dpv.dhr_plvia_ter, 'dd/mm/yyyy hh24:mi:ss') As dhr_plvia_ter,
+       pv.sit_plvia
+FROM plano_viagem pv, destinatario_plano_viagem dpv
+WHERE pv.ctl_plvia = dpv.ctl_plvia
+  AND pv.ctl_plvia IN (  233451, 233612, 234144, 235162, 234139, 235199 )
+
+
+SELECT to_char(dhr_event,'dd/mm/yyyy hh24:mi:ss'), mct_macro.* FROM mct_macro
+WHERE num_mct = 733625
+ORDER BY dhr_event DESC
+
+
+

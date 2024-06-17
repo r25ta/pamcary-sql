@@ -1,0 +1,133 @@
+
+
+select to_char(dhr_inclu, 'dd/mm/yyyy') AS dat_inclu,
+       ctl_plvia,
+       FC_ANALISE_PLVIA_PM( ctl_plvia ) AS P10,
+       FC_ANALISE_PLVIA( ctl_plvia, 20) AS P20,
+       FC_ANALISE_PLVIA( ctl_plvia, 30) AS P30,
+       FC_ANALISE_PLVIA( ctl_plvia, 40) AS P40
+from plano_viagem pv
+where ctl_opera_tip = 13
+  and to_char(dhr_inclu, 'yyyymmdd') = '20030521'
+
+
+select FC_VINCULADO_NOM_GUERR( ctl_trnsp ) AS Transportadora,
+       to_char(dhr_inclu, 'dd/mm/yyyy') AS dat_inclu,
+       ctl_plvia,
+       FC_ID_VEICULO( ctl_plvia ) AS ID,
+       FC_VINCULADO_NOM_GUERR( ctl_remet ) AS LED,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10112) AS M51,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10212) AS M52,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10312) AS M53,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10712) AS M57,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10412) AS M54,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20110) AS PC,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20120) AS PB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20130) AS DGT,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20210) AS SIR,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20220) AS BLQ,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20230) AS TB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20140) AS OBC,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20240) AS GPS,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 40000) AS PP,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30210) AS A_OBC_BP,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30220) AS A_OBC_CA,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30230) AS A_OBC_DE,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30240) AS A_OBC_PB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30250) AS A_OBC_TB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30260) AS A_OBC_AT,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30410) AS V_PRO_ME,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30420) AS V_PRO_EQ,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30430) AS V_FAT_CA,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30510) AS E_OPE
+from plano_viagem pv
+where ctl_opera_tip = 13
+  and ctl_trnsp = 27563
+  and sit_plvia <> 10
+  and to_char(dhr_inclu, 'yyyymmdd') >= '20030401'
+order by ctl_trnsp, dhr_inclu
+
+*/ verificar mês de processamento e se foi gerado um novo codigo de ocorrencia
+
+select * from plano_viagem
+
+select to_char(pv.dhr_inclu, 'dd/mm/yyyy') AS anomes_ref, 
+       FC_VINCULADO_NOM_GUERR( pv.ctl_trnsp ) AS Transportadora,
+       pv.ctl_plvia,
+       'pro'||NVL(pv.ctl_empre_equ,0) As Provedor,
+       'id'||NVL(FC_ID_VEICULO( pv.ctl_plvia ), 0 ) AS ID,
+       'oco'||apv.cod_ocorr As cod_ocorr,
+       'rem'||pv.ctl_remet As ctl_remet, FC_VINCULADO_NOM_GUERR( pv.ctl_remet ) AS LED,
+       'pra'||pr.cod_praca AS cod_praca_desti, pr.des_praca AS des_praca_desti, uf.sig_unfed AS sig_unfed_desti,
+       mpv.ctl_motot, mo.nom_vincd as Motorista,
+       count(*) AS Qtd_ocorr
+from plano_viagem pv, analise_plano_viagem apv, motorista_plano_viagem mpv,
+     vinculado mo, endereco_vinculado ev, praca pr, unidade_federal uf
+where pv.ctl_opera_tip IN ( 13, 3 )
+  and pv.tip_rastr = 1
+  and pv.sit_plvia <> 10
+  and to_char(pv.dhr_inclu, 'yyyymmdd') BETWEEN '20030601' AND '20030630'
+  and pv.ctl_plvia = apv.ctl_plvia
+  and apv.cod_ocorr in ( 10112, 10122, 10212, 10222, 10312, 10322, 10412, 10422, 10712, 10722,
+                         2011, 2012, 2013, 2014, 2021, 2022, 2023, 2024,
+                         3011, 3012, 3013,  40, 50,
+                         3021, 3022, 3023, 3024, 3025, 3031, 3032, 3033, 3041, 3042, 3043, 3026, 3027, 3091,
+                         3071, 3072, 3073, 3074 )
+  and pv.ctl_plvia = mpv.ctl_plvia
+  and mpv.ord_motot = 1
+  and mpv.ctl_motot = mo.ctl_vincd
+  and pv.ctl_remet = ev.ctl_vincd(+)
+  and ev.cod_praca = pr.cod_praca(+)
+  and pr.cod_unfed = uf.cod_unfed(+)
+group by to_char(pv.dhr_inclu, 'dd/mm/yyyy'),
+         'tra'||pv.ctl_trnsp,
+         FC_VINCULADO_NOM_GUERR( pv.ctl_trnsp ),
+         pv.ctl_plvia,
+         pv.ctl_empre_equ,
+         'id'||FC_ID_VEICULO( pv.ctl_plvia ),
+         'oco'||apv.cod_ocorr,
+         'rem'||pv.ctl_remet, FC_VINCULADO_NOM_GUERR( pv.ctl_remet ),
+         'pra'||pr.cod_praca, pr.des_praca, uf.sig_unfed,
+         mpv.ctl_motot, mo.nom_vincd
+
+select count(*)
+from plano_viagem pv, analise_plano_viagem apv
+where pv.ctl_opera_tip in ( 13, 3 )
+  and pv.tip_rastr = 1
+  and to_char(pv.dhr_inclu,'yyyymm') = '200211'
+  and pv.ctl_plvia = apv.ctl_plvia
+  and apv.cod_ocorr = 50
+
+
+
+select * from analise_plano_viagem
+where cod_ocorr = 3033
+
+SELECT PV.ctl_plvia AS PLVIA, NVL(FC_ID_VEICULO( pv.ctl_plvia ), 0 ) AS ID_TERMINAL, PV.sit_plvia AS SIT_PLVIA,
+    pv.tip_rastr As tip_rastr, (DECODE(PV.tip_rastr,1,'SATELITE',2,'CARTAO',3,'TELEFONICO')) AS des_rastr, SPV.des_situa AS DES_SIT_PLVIA, PV.ctl_opera_tip TIP_OPER, TOP.des_opera_tip AS DES_TIP_OPER,
+    NVL(pv.ctl_empre_equ,0) As PROVEDOR,
+    MPV.ctl_motot, MO.nom_vincd as MOTORISTA,
+    FC_VINCULADO_NOM_GUERR( pv.ctl_trnsp ) AS TRANSPORTADORA,
+    PV.ctl_remet As CTL_REMET, FC_VINCULADO_NOM_GUERR( PV.ctl_remet ) AS REMET,
+    PV.ctl_desti AS CTL_DESTI, FC_VINCULADO_NOM_GUERR( pv.ctl_desti) AS DESTI,
+    PR.cod_praca AS COD_PRACA_DESTI, PR.des_praca AS DES_PRACA_DESTI,
+    UF.sig_unfed AS SIG_UNFED_DESTI, to_char(PV.dhr_inclu,'DD/MM/YYYY HH24:MI') AS INCLUSAO, to_char(PV.dhr_plvia_ter,'DD/MM/YYYY HH24:MI') AS TERMINO,
+    APV.cod_ocorr AS COD_OCORR, APV.des_anali_eve AS DES_ANALI_EVE, APV.nom_inclu_sup AS NOM_SUP, APV.nom_inclu AS NOM_USER
+FROM plano_viagem PV, tipo_operacao TOP, motorista_plano_viagem MPV, vinculado MO,
+    situacao_plano_viagem SPV, endereco_vinculado EV, praca PR, unidade_federal UF, 
+    analise_plano_viagem APV
+WHERE PV.ctl_opera_tip = TOP.ctl_opera_tip
+AND to_char(PV.dhr_inclu, 'yyyymmdd') BETWEEN '20030601' AND '20030615'
+AND PV.ctl_plvia = MPV.ctl_plvia
+AND MPV.ord_motot = 1
+AND MPV.ctl_motot = MO.ctl_vincd
+AND PV.sit_plvia = SPV.sit_plvia
+AND pv.ctl_remet = ev.ctl_vincd(+)
+AND ev.cod_praca = pr.cod_praca(+)
+AND pr.cod_unfed = uf.cod_unfed(+)
+AND PV.ctl_plvia = APV.ctl_plvia
+AND apv.cod_ocorr in ( 10112, 10122, 10212, 10222, 10312, 10322, 10412, 10422, 10712, 10722,
+                       2011, 2012, 2013, 2014, 2021, 2022, 2023, 2024,
+                       3011, 3012, 3013,  40, 50,
+                       3021, 3022, 3023, 3024, 3025, 3031, 3032, 3033, 3041, 3042, 3043, 3026, 3027, 3091,
+                       3071, 3072, 3073, 3074 )

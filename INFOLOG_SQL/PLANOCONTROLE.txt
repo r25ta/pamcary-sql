@@ -1,0 +1,50 @@
+select * from plano_controle
+where ctl_plano_ctl = 13099 
+
+select d.cod_dispo_rst, to_char(pd.dhr_event,'dd/mm/yyyy hh24:mi:ss'), to_char(pd.dhr_alter,'dd/mm/yyyy hh24:mi:ss'),pd.* from posicao_dispositivo pd, dispositivo d
+where d.ctl_dispo_rst = pd.ctl_dispo_rst
+and to_char(pd.dhr_event,'yyyymmddhh24mi') = '200803141320'
+
+and d.ctl_dispo_rst = 1094
+
+order by dhr_event desc
+
+14/03/2008 01:28 
+
+
+select to_char(dhr_event,'dd/mm/yyyy hh24:mi:ss'), d.* from posicao_dispositivo d
+where ctl_dispo_rst = 1472
+order by d.dhr_event desc
+
+BYG0611 
+
+select * from veiculo
+where ctl_veicu = 157588
+
+select d.cod_dispo_rst, r.* from relac_veiculo_dispositivo r, dispositivo d
+where d.ctl_dispo_rst = r.ctl_dispo_rst
+and r.ctl_veicu = 157588
+order by sta_ativo desc
+
+100001386
+900001321
+
+select * from evento_plano_controle
+where ctl_plano_ctl = 13099
+13128
+
+1552 - 900001321 - 14/03/2008 13:20:00 - 14/03/2008 14:25:52
+1171 - 18970 - 14/03/2008 13:20:00 - 14/03/2008 14:04:21
+850 - 13951 - 14/03/2008 13:20:00 - 14/03/2008 13:20:44
+1171 - 18970 - 14/03/2008 13:20:00 - 14/03/2008 13:21:15
+
+
+
+select * from dispositivo
+where cod_dispo_rst IN( '900001321', '900002581')
+
+select * from relac_veiculo_dispositivo
+where ctl_dispo_rst = 1112
+ctl_veicu=157588
+
+

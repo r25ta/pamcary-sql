@@ -1,0 +1,165 @@
+CREATE OR REPLACE PROCEDURE PC_MNT_ATRASO_IV
+AS
+  Arq_exceute          UTL_FILE.FILE_TYPE;
+--
+  I_ctl_solic_env      NUMBER(10);
+  I_cabec_email        LONG;
+  I_cabec_client       LONG;
+  I_detal_email        LONG;
+  I_rodap_email        LONG;
+  I_string             LONG;
+--  
+  I_nome_destino       VARCHAR2(30);       
+  I_ctl_desti          NUMBER(10);       
+  I_ctl_remet          NUMBER(10);       
+  I_kml_termino      NUMBER(10);
+--
+  I_NOM_APLIC_SOL  VARCHAR2(30); 
+  I_DES_EMAIL_RES  VARCHAR2(100);
+  I_DES_EMAIL_ASS  VARCHAR2(100);
+  I_DES_EMAIL_TXT  LONG ;
+  I_COD_USER       VARCHAR2(30);
+  I_CTL_ENDER_SGP  NUMBER(10);
+-- 
+CURSOR POSICAO is
+ SELECT pv.ctl_plvia, 
+        pv.ctl_remet, 
+        dpv.ctl_desti,
+        FC_VINCULADO_NOM_GUERR(DPV.ctl_desti) AS nom_desti,
+        FC_VINCULADO_NOM_GUERR(PV.ctl_trnsp) AS nom_trnsp,
+        TO_CHAR(PV.dhr_plvia_ini, 'dd/mm/yyyy hh24:mi') AS dhr_plvia_ini,
+        TO_CHAR(DPV.dhr_plvia_ter, 'dd/mm/yyyy hh24:mi') AS dhr_plvia_ter,
+        TO_CHAR(pv.dhr_plvia_ini+(10/24/60),'dd/mm/yyyy hh24:mi:ss') AS inicio_viagem
+   FROM plano_viagem PV, destinatario_plano_viagem DPV
+  WHERE pv.ctl_plvia = dpv.ctl_plvia
+    AND pv.ctl_opera_tip = 19
+    AND pv.sit_plvia = 0
+    AND (pv.dhr_plvia_ini+(10/24/60)) < sysdate ;
+    
+     cPOSICAO POSICAO%ROWTYPE; 
+--
+--Processamento
+--
+ BEGIN
+--
+  I_NOM_APLIC_SOL  := 'Atraso Inicio de Viagem';
+  I_DES_EMAIL_RES  := 'luiz.lobo@pamcary.com.br';
+  I_DES_EMAIL_ASS  := 'Boletim Pamcary: Atraso Inicio de Viagem';
+  I_DES_EMAIL_TXT  := ' ';
+  I_COD_USER       := 'PC_MNT_ATRASO_IV';
+--
+  I_cabec_email := '<html>'
+	|| '<HEAD>'
+	|| '<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">'
+	|| '<TITLE>PAMCARY Logística e Gerenciamento de Risco</title>'
+	|| '</HEAD>'
+	|| '<BODY topmargin="0" leftmargin="0" border="0">'
+	||  '<DIV>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD style="WIDTH: 70%" width="70%"><FONT face=Verdana size=2>'
+	||  '    <STRONG>::</STRONG></FONT></TD>'
+	||  '   <TD style="WIDTH: 30%" width="30%"></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+	||  '<DIV align=left>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD bgColor="#f2fdff">'
+	||  '    <FONT face=Verdana size=2><P align="center"><STRONG> Inicio de Viagem Pendente </STRONG></FONT></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+	||  '<DIV align=center>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=2 width="100%">'
+	||  '  <TBODY>'
+	||  '   <TR>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 25%" width=20%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Transportadora</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 12%" width=12%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Data/hora Real Saida</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 12%" width=12%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Data/Hora Prevista Chegada</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 50%" width=41% colspan=2><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Última Posicao</FONT></STRONG></P></TD>'
+	||  '   </TR>';
+--
+  I_rodap_email := '  </TBODY>'
+ 	||  ' </TABLE>'
+ 	||  '</DIV>'
+ 	||  '</BODY>'
+ 	||  '</html>';
+--
+  I_kml_termino := 0;
+--
+  OPEN POSICAO;
+  FETCH POSICAO INTO cPOSICAO;
+--  
+  LOOP
+    EXIT WHEN POSICAO%NOTFOUND;
+--
+    I_detal_email  := '';
+    I_nome_destino := cPOSICAO.nom_desti;
+    I_ctl_desti    := cPOSICAO.ctl_desti;
+    I_ctl_remet    := cPOSICAO.ctl_remet; 
+--
+    I_cabec_client := '<DIV>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD style="WIDTH: 70%" width="70%"><FONT face=Verdana size=2>'
+	||  '    <STRONG>::' || I_nome_destino || '</STRONG></FONT></TD>'
+	||  '   <TD style="WIDTH: 30%" width="30%"></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>';
+--    
+    WHILE I_nome_destino = cPOSICAO.nom_desti LOOP
+--    
+      I_string := '   <TR>'
+  	||  '    <TD bgColor=#F5F7FC><FONT face="MS Sans Serif" size=1>' || cPOSICAO.nom_trnsp || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || cPOSICAO.dhr_plvia_ini || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || cPOSICAO.dhr_plvia_ter || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || ' ' || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC><FONT face="MS Sans Serif" size=1>' || ' ' || '</FONT></TD>'
+	||  '   </TR>'
+	||  '   <TR>'
+	||  '    <TD colspan=5>'
+	||  '     <TABLE align="right" border=0 cellPadding=1 cellSpacing=2 width="100%">'
+	||  '      <TR>'
+	||  '       <TD width="100%"><P align=center>'
+	||  '        <FONT face="MS Sans Serif" size=1>Total do Percurso realizada: ' || ' ' || '% </FONT></P></TD>'
+	||  '      </TR>'
+	||  '     </TABLE>'
+	||  '	 </TD>'
+	||  '   </TR>';
+--	
+      I_detal_email := I_detal_email || I_string;
+--
+      FETCH POSICAO INTO cPOSICAO;
+      EXIT WHEN POSICAO%NOTFOUND;
+    END LOOP;   
+--
+    I_ctl_solic_env := FC_EMAIL_CTL_SOLIC_ENV;
+    I_DES_EMAIL_TXT := I_cabec_email || I_cabec_client || I_detal_email || I_rodap_email;
+--
+    PC_EMAIL_SOLICITACAO_INCLUIR ( I_ctl_solic_env,
+  			           I_NOM_APLIC_SOL,
+				   I_DES_EMAIL_RES,
+				   I_DES_EMAIL_ASS,
+				   I_DES_EMAIL_TXT,
+				   I_COD_USER,
+				   Null );
+--
+     PC_EMAIL_ENDERECO_INCLUIR ( I_ctl_solic_env,
+	                         'luiz.lobo@pamcary.com.br' );
+--
+--     PC_EMAIL_SOLICITACAO_ENDERECO ( I_ctl_remet,
+--                                     I_ctl_desti, 
+--                                     0,
+--                                     I_ctl_solic_env );
+--
+  END LOOP;
+  CLOSE POSICAO;
+--
+END PC_MNT_ATRASO_IV;

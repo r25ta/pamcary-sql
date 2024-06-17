@@ -1,0 +1,6 @@
+SELECT PR.des_praca, UF.nom_unfed, UF.sig_unfed, EV.des_latit, EV.des_longi
+FROM ENDERECO_VINCULADO EV, PRACA PR, UNIDADE_FEDERAL UF
+WHERE EV.des_latit <> ' '
+AND EV.des_longi <> ' '
+AND EV.cod_praca = PR.cod_praca
+AND PR.cod_unfed = UF.cod_unfed 

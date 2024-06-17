@@ -1,0 +1,1789 @@
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:21
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:26
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:36
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:36
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:38
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 30-SET-02 14:38:38
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:16
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:17
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:18
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:18
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:19
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:19
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 18-NOV-02 17:02:19
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:42
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:44
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:51
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:51
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:51
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12203, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 01-ABR-03 15:05:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12203
+    TNS-12203: TNS:não é possível estabelecer conexão com o destino
+    ns main err code: 12560
+    TNS-12560: TNS:erro do adaptador de protocolo
+    ns secondary err code: 0
+    nt main err code: 102
+    TNS-00102: Erro de operação da vinculação Palavra-Chave-Valor
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:33
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:33
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:33
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 16-ABR-03 18:30:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:26
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO-SESCO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 05-MAI-03 15:59:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:40:08
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:41:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:41:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:41:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:41:56
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:09
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:09
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:09
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:12
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:12
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=RONALDO)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 26-NOV-04 14:42:12
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 16:53:32
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:05
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:10
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:10
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAMSIST-011)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 28-MAR-05 17:05:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 20-OUT-05 16:28:29
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 20-OUT-05 16:28:29
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:11:10
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:56
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:56
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0489)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 03-MAR-06 16:59:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0819)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 25-JUL-08 15:14:39
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal OSN connect error 12547, connecting to:
+ (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=BEQ)(PROGRAM=oracle80)(ARGV0=oracle80ORCL)(ARGS='(DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))')))(CONNECT_DATA=(SID=ORCL)(CID=(PROGRAM=Sqlnav.exe)(HOST=PAM0819)(USER=Ronaldo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 2.3.4.0.0 - Production
+	Oracle Bequeath NT Protocol Adapter for 32-bit Windows: Version 2.3.4.0.0 - Production
+  Time: 25-JUL-08 15:14:39
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 12206
+    TNS-12206: TNS:recebido um erro de TNS durante a navegação
+    ns main err code: 12547
+    TNS-12547: TNS:contato perdido
+    ns secondary err code: 12560
+    nt main err code: 517
+    TNS-00517: Contato perdido
+    nt secondary err code: 0
+    nt OS err code: 0

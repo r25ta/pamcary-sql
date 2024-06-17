@@ -1,0 +1,19 @@
+SELECT NVL( FC_VINCULADO_DOCUMENTO(MPV.ctl_motot, 2), ' ' ) AS CPF,
+        FC_VINCULADO_NOM_GUERR(MPV.ctl_motot) AS NomeMotorista,
+        PV.ctl_trnsp AS CodTransportadora,
+        FC_VINCULADO_DOCUMENTO(PV.ctl_trnsp, 1) AS CnpjTransportadora,
+        FC_VINCULADO_NOM_GUERR(PV.ctl_trnsp) AS NomeTransportadora,
+        FC_PLACA_VEICULO(PV.ctl_plvia) AS NumPlaca,
+        FC_VINCULADO_ENDERECO_UF(PV.ctl_remet,1) AS UfOrigem,
+        DPV.ctl_desti AS CtlDestino,
+        FC_VINCULADO_ENDERECO_UF(DPV.ctl_desti,1) AS UfDestino,
+        TO_CHAR(PV.dhr_plvia_ini,'dd/mm/yyyy') AS DhrInicioPrevisto,
+        NVL(TO_CHAR(FC_DHR_INICIO_VIAGEM(PV.ctl_plvia),'dd/mm/yyyy'), ' ') AS DhrInicioReal,
+        TO_CHAR(PV.dhr_inclu,'dd/mm/yyyy') AS dat_inclusao
+   FROM PLANO_VIAGEM PV,
+        MOTORISTA_PLANO_VIAGEM MPV,
+        DESTINATARIO_PLANO_VIAGEM DPV
+  WHERE PV.ctl_plvia = MPV.ctl_plvia
+    AND PV.ctl_plvia = DPV.ctl_plvia
+    AND PV.sit_plvia <> 10
+    AND TO_CHAR(PV.dhr_inclu,'yyyymmdd') = '20020901'

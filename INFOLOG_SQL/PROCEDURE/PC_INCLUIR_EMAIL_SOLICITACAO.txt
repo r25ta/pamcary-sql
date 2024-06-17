@@ -1,0 +1,44 @@
+CREATE OR REPLACE 
+PROCEDURE PC_INCLUIR_EMAIL_SOLICITACAO ( PNOM_APLIC_SOL  VARCHAR2,
+                                           PDES_EMAIL_RES  VARCHAR2,
+                                           PDES_EMAIL_ASS  VARCHAR2,
+                                           PDES_EMAIL_TXT  LONG,
+                                           PCOD_USER       VARCHAR2,
+                                           PCTL_ENDER_SGP  NUMBER )
+AS
+ I_CTL_SOLIC_ENV Number;
+BEGIN
+ I_CTL_SOLIC_ENV := 1001;
+--SELECT SQ_CTL_SOLIC_ENV.nextval
+--  INTO I_CTL_SOLIC_ENV
+--  FROM DUAL;
+ INSERT INTO
+   EMAIL_SOLICITACAO ( CTL_SOLIC_ENV,
+                       NOM_APLIC_SOL,
+                       DHR_SOLIC_ENV,
+                       COD_SITUA_ENV,
+                       DHR_ENVIO,
+                       DES_EMAIL_RES,
+                       DES_EMAIL_ASS,
+                       DES_EMAIL_TXT,
+                       COD_USER,
+                       DHR_MANUT,
+                       CTL_ENDER_SGP )
+              VALUES ( I_CTL_SOLIC_ENV,
+                       TO_MULTI_BYTE(PNOM_APLIC_SOL),
+                       SYSDATE,
+                       Null,
+                       Null,
+                       TO_MULTI_BYTE(PDES_EMAIL_RES),
+                       TO_MULTI_BYTE(PDES_EMAIL_ASS),
+                       Null,
+                       TO_MULTI_BYTE(PCOD_USER),
+                       SYSDATE,
+                       PCTL_ENDER_SGP );
+ COMMIT;
+ UPDATE EMAIL_SOLICITACAO
+    SET COD_SITUA_ENV = 0,
+        DES_EMAIL_TXT = PDES_EMAIL_TXT
+    WHERE CTL_SOLIC_ENV = I_CTL_SOLIC_ENV;
+ COMMIT;
+END PC_INCLUIR_EMAIL_SOLICITACAO;

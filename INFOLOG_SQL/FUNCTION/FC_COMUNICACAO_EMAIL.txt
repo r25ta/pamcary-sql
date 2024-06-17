@@ -1,0 +1,40 @@
+CREATE OR REPLACE
+FUNCTION FC_COMUNICACAO_EMAIL ( 
+             PCTL_REMET NUMBER, PCTL_DESTI NUMBER, PSTA_ENVIO NUMBER )
+RETURN VARCHAR2
+AS
+ I_email   varchar2(1000);
+
+CURSOR
+ EMAIL IS
+ SELECT LOWER(NVL(des_comun, ' ' )) AS des_comun
+   FROM COMUNICACAO_CONTATO CC, 
+        DADO_ADICIONAL_EMBARC_CLIENTE DAEC
+  WHERE DAEC.ctl_remet = PCTL_REMET AND DAEC.ctl_desti = PCTL_DESTI
+    AND DAEC.sta_envio >= PSTA_ENVIO
+    AND DAEC.ctl_desti = CC.ctl_vincd
+    AND CC.ctl_vincd = PCTL_DESTI
+    AND CC.tip_comun = 7;
+ 
+  REMAIL EMAIL%ROWTYPE;
+BEGIN
+ OPEN EMAIL;
+ FETCH EMAIL INTO REMAIL;
+ 
+ I_email := '';
+ WHILE EMAIL%FOUND LOOP
+   
+   IF REMAIL.des_comun != ' ' THEN
+      I_email := I_email || REMAIL.des_comun || '#';
+   END IF;
+ 
+ END LOOP;
+ CLOSE EMAIL;
+
+ IF I_email = '' THEN
+    RETURN(NULL);
+ END IF;
+
+ RETURN(LTRIM(RTRIM(I_email)));
+END;
+/

@@ -1,0 +1,64 @@
+CREATE OR REPLACE
+FUNCTION FC_COD_MACRO_ULT(PNUM_ID_TERMINAL NUMBER,
+						    PCTL_PLVIA NUMBER,	
+						    PCTL_TRNSP NUMBER,
+						    PDHR_INICIO VARCHAR2, 						    
+						    PDHR_EVENT VARCHAR2,						    
+						    PNOM_USER VARCHAR2
+						    )
+RETURN VARCHAR2
+AS
+CURSOR
+ITERMINAL IS
+--
+SELECT num_mct, cod_macro_ult, to_char(dhr_macro_ult,'YYYYMMDDHH24MISS') AS dhr_macro_ult,cod_serve
+FROM POSICAO_ID_TERMINAL
+WHERE num_mct = PNUM_ID_TERMINAL
+AND to_char(dhr_macro_ult,'YYYYMMDDHH24MISS') > PDHR_INICIO;
+--
+RTERMINAL ITERMINAL%ROWTYPE;
+--
+BEGIN
+OPEN ITERMINAL;
+FETCH ITERMINAL INTO RTERMINAL;
+--
+ IF ITERMINAL%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ CLOSE ITERMINAL;
+ RETURN(RTERMINAL.dhr_macro_ult);
+END;
+
+UPDATE plano_viagem SET 
+   sit_plvia = 1
+   cod_user = PNOM_USER,
+   dhr_manut = SYSDATE
+WHERE ctl_plvia = PCTL_PLVIA;
+         
+UPDATE destinatario_plano_viagem SET
+   sit_plvia = 1
+WHERE ctl_plvia = PCTL_PLVIA;                 
+
+UPDATE POSICAO_ID_TERMINAL SET 
+   cod_macro_ult = 51, 
+   dhr_posic = PDHR_EVENT,
+   dhr_posic_1pr = PDHR_EVENT,
+   dhr_inici_rea = PDHR_EVENT,
+   dhr_termi_rea = NULL,
+   sit_mct = 1,
+   cod_grupo_mnt = 1,
+   cod_user = PNOM_USER,_
+   dhr_manut = SYSDATE
+WHERE num_mct = PNUM_ID_TERMINAL;
+
+INSERT INTO mct_macro VALUES (
+   sq_ctl_macro.nextval,
+   PNUM_ID_TERMINAL,
+   PCTL_TRNSP,
+   99,
+   SYSDATE,
+   NULL,NULL,NULL,NULL,
+   'MONITORADO PELA PAMCARY',
+   PNOM_USER,
+   SYSDATE,
+   NULL,NULL);

@@ -1,0 +1,85 @@
+CREATE OR REPLACE
+FUNCTION FC_DISTANCIA (PCTL_LOCAL NUMBER, PNUM_LA_POS NUMBER, PNUM_LO_POS NUMBER)
+RETURN NUMBER
+AS
+CURSOR
+ DISTANCIA IS
+ SELECT NVL(EV.des_latit,' ') AS num_la_loc, 
+        NVL(EV.des_longi,' ') AS num_lo_loc
+   FROM ENDERECO_VINCULADO EV
+  WHERE EV.ctl_vincd = PCTL_LOCAL;
+
+ RDISTANCIA DISTANCIA%ROWTYPE;
+
+ lag1 NUMBER;
+ lam1 NUMBER;
+ las1 NUMBER;
+ log1 NUMBER;
+ lom1 NUMBER;
+ los1 NUMBER; 
+
+ lag2 NUMBER;
+ lam2 NUMBER;
+ las2 NUMBER;
+ log2 NUMBER;
+ lom2 NUMBER;
+ los2 NUMBER; 
+ 
+ lat1 NUMBER;
+ lat2 NUMBER;
+
+ long1 NUMBER;
+ long2 NUMBER;
+
+ var1 NUMBER;
+ var2 NUMBER;
+ var3 NUMBER;
+ 
+ pi NUMBER;    
+
+ KMdistancia NUMBER;
+
+BEGIN
+
+ OPEN DISTANCIA;
+ FETCH DISTANCIA INTO RDISTANCIA;
+ IF DISTANCIA%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ 
+ IF RDISTANCIA.num_la_loc = ' ' OR RDISTANCIA.num_lo_loc = ' ' THEN
+    RETURN(NULL);
+ END IF;
+
+ lag1 := TO_NUMBER(SUBSTR(Pnum_la_pos, 1, 2));
+ lam1 := TO_NUMBER(SUBSTR(Pnum_la_pos, 3, 2));
+ las1 := TO_NUMBER(SUBSTR(Pnum_la_pos, 5, 2));
+ log1 := TO_NUMBER(SUBSTR(Pnum_lo_pos, 1, 2));
+ lom1 := TO_NUMBER(SUBSTR(Pnum_lo_pos, 3, 2));
+ los1 := TO_NUMBER(SUBSTR(Pnum_lo_pos, 5, 2));
+ 
+ lag2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_la_loc, 1, 2));
+ lam2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_la_loc, 3, 2));
+ las2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_la_loc, 5, 2));
+ log2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_lo_loc, 1, 2));
+ lom2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_lo_loc, 3, 2));
+ los2 := TO_NUMBER(SUBSTR(RDISTANCIA.num_lo_loc, 5, 2));
+ 
+ /* Número PI constante = 3,1415926535897932384626433832795 */
+ pi := 3.1415926535897932384626433832795;
+
+ lat1  := (lag1 + (lam1 / 60) + (las1 / 3600)) * pi / 180;
+ long1 := (log1 + (lom1 / 60) + (los1 / 3600)) * pi / 180;
+ lat2  := (lag2 + (lam2 / 60) + (las2 / 3600)) * pi / 180;
+ long2 := (log2 + (lom2 / 60) + (los2 / 3600)) * pi / 180;
+ 
+ var1 := Sin(lat1) * Sin(lat2);
+ var2 := Cos(lat1) * Cos(lat2) * Cos(long1 - long2);
+ var3 := 2 * (1 - var1 - var2);
+
+ KMdistancia := 6372 * Sqrt(var3);
+
+CLOSE DISTANCIA;
+ RETURN(KMdistancia);
+END;
+/

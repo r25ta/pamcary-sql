@@ -1,0 +1,22 @@
+CREATE OR REPLACE
+FUNCTION            FC_DHR_INICIO_COLETA (PCTL_VIA NUMBER)
+RETURN DATE
+AS
+CURSOR
+ IC IS
+ SELECT dhr_efeti_rea AS dhr_inici_col
+   FROM SUPERVISOR.ROTEIRO_MOTORISTA
+  WHERE sit_fase_rea IN ( 'R', 'T' )
+    AND ctl_parad = 16
+    AND ctl_plvia = PCTL_VIA;
+ ICR IC%ROWTYPE;
+BEGIN
+ OPEN IC;
+ FETCH IC INTO ICR;
+ IF IC%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ CLOSE IC;
+ RETURN(ICR.dhr_inici_col);
+END;
+/

@@ -1,0 +1,25 @@
+CREATE OR REPLACE
+FUNCTION FC_QTD_REA_PC(PCTL_VIA NUMBER)
+RETURN NUMBER
+AS
+CURSOR
+REA IS
+     SELECT ctl_plvia, count(*) as qtd_real
+       FROM SUPERVISOR.ROTEIRO_MOTORISTA
+      WHERE ctl_plvia = PCTL_VIA
+        AND ctl_parad = 13
+        AND sit_fase_rea IN ( 'R', 'T' )
+        AND sta_telef = 'S'
+      GROUP BY ctl_plvia;
+FREA REA%ROWTYPE;
+BEGIN
+ OPEN REA;
+ FETCH REA INTO FREA;
+ IF REA%NOTFOUND THEN
+    RETURN(NULL);
+ END IF;
+ CLOSE REA;
+ RETURN(FREA.qtd_real);
+END;
+
+

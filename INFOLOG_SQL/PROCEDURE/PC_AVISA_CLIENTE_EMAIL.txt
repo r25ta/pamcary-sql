@@ -1,0 +1,169 @@
+CREATE OR REPLACE 
+ PROCEDURE PC_AVISA_CLIENTE_EMAIL
+--
+ AS
+  Arq_exceute          UTL_FILE.FILE_TYPE;
+--
+  I_kml_ori_des     	NUMBER;
+  I_kml_distancia   	NUMBER;
+  I_kml_termino     	NUMBER;
+  I_Nreg                	NUMBER;
+  I_ctl_solic_env    	NUMBER;
+  I_cabec_email    	LONG;
+  I_detal_email      	LONG;
+  I_rodap_email    	LONG;
+  I_string               	LONG;
+  
+  i                    		NUMBER;
+  I_nome_destino       VARCHAR2(30);       
+
+  I_NOM_APLIC_SOL  	VARCHAR2(30); 
+  I_DES_EMAIL_RES  	VARCHAR2(100);
+  I_DES_EMAIL_ASS  	VARCHAR2(100);
+  I_DES_EMAIL_TXT  	LONG ;
+  I_COD_USER       		VARCHAR2(30);
+  I_CTL_ENDER_SGP  	NUMBER;
+-- 
+ CURSOR POSICAO is
+   SELECT PV.ctl_remet,
+          DPV.ctl_desti,
+          FC_VINCULADO_NOME(DPV.ctl_desti, 2) AS nom_desti,
+          FC_VINCULADO_NOM_GUERR(PV.ctl_trnsp) AS nom_trnsp,
+          NVL( TO_CHAR(FC_DHR_INICIO_VIAGEM( PV.ctl_plvia ), 'dd/mm/yyyy hh24:mi'), ' ' ) AS dhr_plvia_ini,
+          TO_CHAR(DPV.dhr_plvia_ter, 'dd/mm/yyyy hh24:mi') AS dhr_plvia_ter,
+          TO_CHAR(PV.dhr_posic_ult, 'dd/mm/yyyy hh24:mi') AS dhr_posic_ult,
+          PV.des_praca_ult,
+          ROUND(NVL(FC_DISTANCIA_DESTINATARIO(PV.ctl_plvia, DPV.ctl_desti), 0),2) As KMDistancia,
+          NVL(DAEC.qtd_klm,0) AS kml_ori_des
+     FROM PLANO_VIAGEM PV,
+          DESTINATARIO_PLANO_VIAGEM DPV,
+          DADO_ADICIONAL_EMBARC_CLIENTE DAEC
+    WHERE PV.ctl_opera_tip = 3
+      AND PV.tip_rastr = 1
+      AND DPV.sit_plvia = 1
+      AND PV.ctl_plvia = DPV.ctl_plvia
+      AND PV.ctl_remet = DAEC.ctl_remet
+      AND DPV.ctl_desti = DAEC.ctl_desti
+      AND DAEC.idt_aviso_eml = 1;
+      
+  cPOSICAO POSICAO%ROWTYPE;  
+
+ BEGIN
+
+  I_NOM_APLIC_SOL  := 'Ultima Posicao da Carga';
+  I_DES_EMAIL_RES  := 'ronaldo.conceicao@pamcary.com.br';
+  I_DES_EMAIL_ASS  := 'Boletim Pamcary: Posicao da Carga';
+  I_DES_EMAIL_TXT  := ' ';
+  I_COD_USER       := 'PC_AVISA_CLIENTE_EMAIL';
+ 
+  I_cabec_email := '<html>'
+	|| '<HEAD>'
+	|| '<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">'
+	|| '<TITLE>PAMCARY Logística e Gerenciamento de Risco</title>'
+	|| '</HEAD>'
+	|| '<BODY topmargin="0" leftmargin="0" border="0">'
+	||  '<DIV>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD style="WIDTH: 70%" width="70%"><FONT face=Verdana size=2>'
+	||  '    <STRONG>::</STRONG></FONT></TD>'
+	||  '   <TD style="WIDTH: 30%" width="30%"></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+	||  '<DIV align=left>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=1 width="100%">'
+	||  '  <TR>'
+	||  '   <TD bgColor="#f2fdff">'
+	||  '    <FONT face=Verdana size=2><P align="center"><STRONG> Relacao de Viagens em Monitoramento</STRONG></FONT></TD>'
+	||  '  </TR>'
+	||  ' </TABLE>'
+	||  '</DIV>'
+	||  '<DIV align=center>'
+	||  ' <TABLE border=0 cellPadding=1 cellSpacing=2 width="100%">'
+	||  '  <TBODY>'
+	||  '   <TR>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 25%" width=20%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Transportadora</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 12%" width=12%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Data/hora Real Saida</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 12%" width=12%><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Data/Hora Prevista Chegada</FONT></STRONG></P></TD>'
+	||  '    <TD bgColor=#C0C0C0 style="WIDTH: 50%" width=41% colspan=2><P align=center>'
+	||  '     <STRONG><FONT face="MS Sans Serif" size=1 color=#000080>Última Posicao</FONT></STRONG></P></TD>'
+	||  '   </TR>';
+ 
+  I_rodap_email := '  </TBODY>'
+ 	||  ' </TABLE>'
+ 	||  '</DIV>'
+ 	||  '</BODY>'
+ 	||  '</html>';
+ 
+  i := 0;
+  I_Nreg := 0;
+  I_kml_termino := ' ';
+
+  OPEN POSICAO;
+  FETCH POSICAO INTO cPOSICAO;
+  
+  LOOP
+    --IF POSICAO%NOTFOUND THEN
+    --   EXIT;
+    --END IF;
+    EXIT WHEN POSICAO%NOTFOUND;
+
+    I_detal_email := '';
+    I_nome_destino := cPOSICAO.nom_desti;
+    
+    While I_nome_destino = cPOSICAO.nom_desti LOOP
+
+      IF TO_NUMBER(cPOSICAO.kmdistancia) > 0 AND TO_NUMBER(cPOSICAO.kml_ori_des) > 0 THEN
+         I_kml_termino := ROUND(((TO_NUMBER(cPOSICAO.kml_ori_des) - TO_NUMBER(cPOSICAO.kmdistancia) ) / TO_NUMBER(cPOSICAO.kml_ori_des))*100,0);
+      END IF;
+    
+      I_string := '   <TR>'
+  	||  '    <TD bgColor=#F5F7FC><FONT face="MS Sans Serif" size=1>' || cPOSICAO.nom_trnsp || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || cPOSICAO.dhr_plvia_ini || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || cPOSICAO.dhr_plvia_ter || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC align=middle><FONT face="MS Sans Serif" size=1>' || cPOSICAO.dhr_posic_ult || '</FONT></TD>'
+	||  '    <TD bgColor=#F5F7FC><FONT face="MS Sans Serif" size=1>' || cPOSICAO.des_praca_ult || '</FONT></TD>'
+	||  '   </TR>'
+	||  '   <TR>'
+	||  '    <TD colspan=5>'
+	||  '     <TABLE align="right" border=0 cellPadding=1 cellSpacing=2 width="100%">'
+	||  '      <TR>'
+	||  '       <TD width="100%"><P align=center>'
+	||  '        <FONT face="MS Sans Serif" size=1>Total do Percurso realizada: ' || I_kml_termino || '% </FONT></P></TD>'
+	||  '      </TR>'
+	||  '     </TABLE>'
+	||  '	 </TD>'
+	||  '   </TR>';
+	
+      I_detal_email := I_detal_email || I_string;
+
+      FETCH POSICAO INTO cPOSICAO;
+      EXIT WHEN POSICAO%NOTFOUND;
+    END LOOP;   
+
+    I_ctl_solic_env := FC_EMAIL_CTL_SOLIC_ENV;
+    I_DES_EMAIL_TXT := I_cabec_email || I_detal_email || I_rodap_email;
+
+    PC_EMAIL_SOLICITACAO_INCLUIR ( I_ctl_solic_env,
+  			           I_NOM_APLIC_SOL,
+				   I_DES_EMAIL_RES,
+				   I_DES_EMAIL_ASS,
+				   I_DES_EMAIL_TXT,
+				   I_COD_USER,
+				   Null );
+
+     PC_EMAIL_ENDERECO_INCLUIR ( I_ctl_solic_env,
+	                           'ronaldo.conceicao@pamcary.com.br' );
+	                           
+     PC_EMAIL_SOLICITACAO_ENDERECO ( i.ctl_remet,
+                                     i.ctl_desti, 
+                                     0,
+                                     I_ctl_solic_env );                                     
+  END LOOP;
+
+ END PC_AVISA_CLIENTE_EMAIL;    
+/

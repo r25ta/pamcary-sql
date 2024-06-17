@@ -1,0 +1,34 @@
+
+//MOTORISTA
+SELECT AV.nom_vincd_arg, AV.des_ender, AV.des_numer_end, AV.des_bairro_end, AV.des_compl_end, AV.cod_cep,  
+	   AD.cod_docum, 
+	   AP.sit_pesqu_arg, AP.nom_solic, AP.sit_motot_arg, AP.obs_pesqu,TIME(AP.dhr_pesqu) AS dhr_pesqu, TIME(AP.dhr_alter) AS dhr_alter, 
+       DATE(ACV.dat_nasci) AS dat_nasci, ACV.cod_habil,ACV.cod_categ_hab,ACV.nom_pai,ACV.nom_mae, 	 
+	   ATM.des_motot, 
+	   ASP.des_pesqu, 
+	   ASM.des_situa_mot, 
+       PR.des_praca, 
+       UF.nom_unfed,UF.sig_unfed, 
+	   TD.des_tipo_doc 
+FROM ARG_VINCULADO AV, 
+     ARG_DOCVINCULADO AD,     
+	 ARG_PESQUISA AP, 
+	 ARG_COMPVINCULADO ACV,
+	 ARG_TIPMOTORISTA ATM,
+	 ARG_SITPESQUISA ASP,
+	 ARG_SITMOTORISTA ASM,
+	 ARG_PRACA PR,
+	 PAIS P,
+	 UNIDADE_FEDERAL UF,
+	 TIPO_DOCUMENTO TD
+WHERE AV.ctl_vincd_arg = AP.ctl_vincd_mot
+AND AD.ctl_vincd_arg = AP.ctl_vincd_mot
+AND ACV.ctl_vincd_arg = AP.ctl_vincd_mot
+AND ATM.tip_motot_arg = ACV.tip_motot_arg
+AND ASP.sit_pesqu_arg = AP.sit_pesqu_arg
+AND ASM.sit_motot_arg = AP.sit_motot_arg
+AND PR.num_praca_arg = AV.num_praca_arg
+AND UF.num_unfed = PR.num_unfed
+AND P.num_pais = UF.num_pais
+AND TD.tip_docum = AD.tip_docum
+AND AP.ctl_pesqu_arg =2

@@ -1,0 +1,24 @@
+Set cmdStoredProc = Server.CreateObject ("ADODB.Command")
+Set cmdStoredProc.ActiveConnection = Conn
+cmdStoredProc.CommandText = "GET_USER_SECURITY_PROC"
+cmdStoredProc.CommandType = adCmdStoredProc
+
+'Current UserID
+Set param1 = cmdStoredProc.CreateParameter ("i_user_id", adLongVarChar, adParamInput, 30)
+param1.Value = "SYERRAM"
+cmdStoredProc.Parameters.Append param1
+
+'Author UserID
+Set param1 = cmdStoredProc.CreateParameter ("i_created_by",adLongVarChar, adParamInput, 30)
+param1.Value = "SYERRAM"
+cmdStoredProc.Parameters.Append param1
+
+'Edit NCMR
+Set param1 = cmdStoredProc.CreateParameter ("o_edit_ncmr",adBoolean, adParamOutput)
+cmdStoredProc.Parameters.Append param1
+
+'Edit SCAR
+Set param1 = cmdStoredProc.CreateParameter ("o_edit_scar",adBoolean, adParamOutput)
+cmdStoredProc.Parameters.Append param1
+
+Set rsTemp = cmdStoredProc.Execute

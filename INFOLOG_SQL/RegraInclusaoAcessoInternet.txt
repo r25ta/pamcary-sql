@@ -1,0 +1,68 @@
+Liberar acesso internet Cliente
+
+Recuperar razão social
+select * from nota_fiscal_cliente where nom_clien like '%CONDVOLT%'
+
+Alterar tabela vinculado
+update vinculado set nom_vincd = 'CONDVOLT IND. DE CONDUTORES ELETRICOS LTDA' where ctl_vincd = 41069
+
+Verificar relacionamento do cliente com o embarcador
+select * from relacionamento_vinculado
+where ctl_vincd = 41243
+  and ctl_vincd_rld = 41069
+
+Verificar se cliente esta cadastrado na tabela DADO_ADICIONAL_EMBARC_CLIENTE
+select * from dado_adicional_embarc_cliente where ctl_remet = 41243 and ctl_desti = 41069
+ RESULTADO: Não encontrado, executar o procedimento abaixo
+  insert into dado_adicional_embarc_cliente values ( 41243, 41052, 1500, 72, 72, 23, 23, 0, 0 )
+
+Ver exemplo de outro cliente - Cablena
+select * from comunicacao_contato where ctl_vincd = 41052
+
+Verificar se o novo cliente está igual ao exemplo
+select * from comunicacao_contato where ctl_vincd = 41069
+ RESULTADO: Não encontrado, executar o procedimento abaixo
+
+ Verificar se o novo cliente está igual ao exemplo
+ select * from contato where ctl_vincd = 41069
+
+ RESULTADO: Não encontrado, executar o procedimento abaixo para inclusão
+
+ Ao executar a query abaixo, pegar o ultimo CTL_CONTT e somar + 1
+ select * from contato order by ctl_contt desc
+ Ex: CTL_CONTT = 1369 = Proximo numero 1370
+
+ Executar os inserts para inclusaõ dos contatos
+  ** Obs.: Somar 1 para cada comando INSERT para o campo CTL_CONTT **
+  ** Obs.: Alterar o campo CTL_VINCD **
+  ** Obs.: Se NOM_CONTT for preenchido, Preencher o campo TIP_CONTT **
+
+ insert into contato values ( 41069, 1373, 25, 30, 'JOSE ADAILTON', 'PAMCARY.LOBO', SYSDATE )
+ insert into contato values ( 41069, 1374, 25, 30, 'ANA MARIA'    , 'PAMCARY.LOBO', SYSDATE )
+ insert into contato values ( 41069, 1375, 25, 30, 'ROSA MARIA'   , 'PAMCARY.LOBO', SYSDATE )
+
+
+ Executar os inserts para inclusão dos dados do contato
+  ** Obs.: Somar 1 para cada comando INSERT para o campo CTL_CONTT **
+  ** Obs.: Alterar o campo CTL_VINCD **
+  ** Obs.: Alterar o campo CTL_CONTT, conforme os inserts efetuados para a tabela contato **
+  ** Obs.: Campo TIP_COMUN, 1 - Telefone / 7 - Email **
+  ** Obs.: Se NOM_CONTT for preenchido, Preencher o campo TIP_CONTT **
+
+  ** IMPORTANTE **
+  EXECUTAR O PROCEDIOMENTO ABAIXO PARA VERIFICAR O ULTIMO NUMERO DO CAMPO "CTL_COMUN_COT"
+  select * from comunicacao_contato order by ctl_comun_cot desc
+
+  Após execução da query acima, pegar o ultimo CTL_COMUN_COT e somar + 1
+  Ex: CTL_COMUN_COT = 2721 = Proximo numero 2722
+
+  insert into comunicacao_contato values ( 41069, 1373, 1, 2728, 25, 0 , '0112969477', 'PAMCARY.LOBO', SYSDATE )
+  insert into comunicacao_contato values ( 41069, 1373, 7, 2729, 25, 0 , 'CONDVOLT@UOL.COM.BR', 'PAMCARY.LOBO', SYSDATE )
+  insert into comunicacao_contato values ( 41069, 1374, 1, 2730, 25, 0 , null, 'PAMCARY.LOBO', SYSDATE )
+  insert into comunicacao_contato values ( 41069, 1374, 7, 2731, 25, 0 , null, 'PAMCARY.LOBO', SYSDATE )
+  insert into comunicacao_contato values ( 41069, 1375, 1, 2732, 25, 0 , null, 'PAMCARY.LOBO', SYSDATE )
+  insert into comunicacao_contato values ( 41069, 1375, 7, 2733, 25, 0 , null, 'PAMCARY.LOBO', SYSDATE )
+
+
+
+

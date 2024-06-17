@@ -1,0 +1,133 @@
+
+select to_char(pv.dhr_inclu,'yyyymm') as ano_mes_ref,
+       pv.num_orcar,
+       pv.ctl_remet, FC_VINCULADO_NOM_GUERR(pv.ctl_remet) AS Embarcador,
+       pv.ctl_trnsp, FC_VINCULADO_NOM_GUERR(pv.ctl_trnsp) AS Transportadora,
+       pv.ctl_plvia, fc_id_veiculo(pv.ctl_plvia) As Id_terminal,
+       FC_PLACA_VEICULO(pv.ctl_plvia) AS Placa_veiculo,
+       FC_PLACA_CARRETA(pv.ctl_plvia) AS Placa_carreta,
+       pv.ctl_motot, mo.nom_vincd AS Motorista,
+       dpv.ord_desti AS Ord_entrega,
+       dpv.ctl_desti, FC_VINCULADO_NOM_GUERR(dpv.ctl_desti) AS Destinatario,
+       to_char(pv.dhr_plvia_ini, 'dd/mm/yyyy hh24:mi') As Saida_prevista,
+       to_char(dpv.dhr_plvia_ter, 'dd/mm/yyyy hh24:mi') As Chegada_prevista,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 24),'dd/mm/yyyy hh24:mi') As Chegada_coleta,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 16),'dd/mm/yyyy hh24:mi') As inicio_coleta,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 20),'dd/mm/yyyy hh24:mi') As fim_coleta,
+       to_char(fc_dhr_inicio_viagem(pv.ctl_plvia), 'dd/mm/yyyy hh24:mi') As Saida_real,
+       to_char(fc_dhr_fim_viagem(pv.ctl_plvia), 'dd/mm/yyyy hh24:mi') As chegada_real,
+       Trunc( 24 * ( fc_dhr_fim_viagem(pv.ctl_plvia) - fc_dhr_inicio_viagem(pv.ctl_plvia) -
+       Trunc( fc_dhr_fim_viagem(pv.ctl_plvia) -
+              fc_dhr_inicio_viagem(pv.ctl_plvia) ) ) ) As TT_HORAS ,
+       Round( 60 * ( ( 24 * ( fc_dhr_fim_viagem(pv.ctl_plvia) - fc_dhr_inicio_viagem(pv.ctl_plvia) ) - Trunc( fc_dhr_fim_viagem(pv.ctl_plvia) - fc_dhr_inicio_viagem(pv.ctl_plvia) ) ) -
+       Trunc( 24 * ( fc_dhr_fim_viagem(pv.ctl_plvia) - fc_dhr_inicio_viagem(pv.ctl_plvia) ) - Trunc( fc_dhr_fim_viagem(pv.ctl_plvia) - fc_dhr_inicio_viagem(pv.ctl_plvia) ) ) ) ) AS TT_MINUTOS,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 11),'dd/mm/yyyy hh24:mi') As Inicio_descarga,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 23),'dd/mm/yyyy hh24:mi') As Fim_descarga,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 30),'dd/mm/yyyy hh24:mi') As Auditoria,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 31),'dd/mm/yyyy hh24:mi') As DevTotal,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 32),'dd/mm/yyyy hh24:mi') As DevParcial,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 33),'dd/mm/yyyy hh24:mi') As CarCarregadaEngate,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 34),'dd/mm/yyyy hh24:mi') As CarCarregadaDesengate,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 35),'dd/mm/yyyy hh24:mi') As CarDesCarregadaEngate,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 36),'dd/mm/yyyy hh24:mi') As CarDesCarregadaDesengate,
+       to_char(FC_TARIFACAO_LOGISTICA(pv.ctl_plvia, 37),'dd/mm/yyyy hh24:mi') As Reprogramada,
+       pv.sit_plvia, spv.des_situa AS Situacao,
+       pv.tip_motot, tm.des_motot_tip AS Tipo_motorista,
+       nom_user_inc,
+       to_char(dhr_inclu,'dd/mm/yyyy hh24:mi') AS Inclusao
+from plano_viagem pv,
+     destinatario_plano_viagem dpv,
+     vinculado mo,
+     situacao_plano_viagem spv,
+     tipo_motorista tm
+where pv.ctl_opera_tip = 22
+and pv.sit_plvia <> 10
+and pv.ctl_motot = mo.ctl_vincd
+and pv.tip_motot = tm.tip_motot
+and pv.ctl_plvia = dpv.ctl_plvia
+and pv.sit_plvia = spv.sit_plvia
+order by pv.ctl_plvia, to_char(pv.dhr_inclu,'yyyymm'), Embarcador, Transportadora, to_char(pv.dhr_plvia_ini,'yyymmddhh24miss')
+
+
+select num_mct, num_macro, to_char(dhr_event,'dd/mm/yyyy hh24:mi:ss')
+from mct_macro
+where num_mct = 792991
+order by dhr_event desc
+
+select * from roteiro_motorista
+where ctl_plvia = 353679
+
+
+update roteiro_motorista set
+dhr_efeti_rea = to_date('14/02/2003 06:39:46','dd/mm/yyyy hh24:mi:ss')
+where ctl_rtmot = 1834389
+
+
+select * from plano_viagem
+where ctl_plvia in (361408,362787)
+
+update plano_viagem set
+sit_plvia = 10
+where ctl_plvia in (361408,362787)
+
+
+*** Alteracao de Origem ***
+
+update plano_viagem
+set ctl_remet = 50388
+where ctl_remet = 49307
+  and ctl_trnsp = 73451
+  and to_char(dhr_inclu,'yyyymm') >= '200211'
+  and sit_plvia <>  10
+
+
+*** Alteracao de Destino ***
+
+update destinatario_plano_viagem
+set ctl_desti = 51214
+ where ctl_plvia in ( select ctl_plvia
+                        from plano_viagem
+                       where ctl_desti = 59095 and ctl_trnsp = 73451 )
+
+update roteiro_motorista
+set ctl_ptopd = 51214
+where ctl_parad = 12
+  and ctl_plvia in ( select ctl_plvia
+                       from plano_viagem
+                      where ctl_desti = 59095 and ctl_trnsp = 73451 )
+
+update plano_viagem set ctl_desti = 51214 where ctl_desti = 59095 and ctl_trnsp = 73451
+
+
+*** Inclusao ***
+
+insert into TARIFACAO_LOGISTICA
+ values ( 292505, to_date('04/11/2002 23:45:29','dd/mm/yyyy hh24:mi:ss'), 24 )
+
+
+select ctl_plvia, to_char(dhr_event,'dd/mm/yyyy hh24:mi:ss'), ctl_event
+from tarifacao_logistica
+where ctl_plvia = 361406
+
+361406	792787
+
+
+update tarifacao_logistica set
+ctl_event = 99
+where ctl_plvia = 361406
+and ctl_event = 11
+and to_char(dhr_event,'yyyymmddhh24miss') = '20030303043940'
+
+
+
+select ctl_plvia, ctl_event, to_char(dhr_event,'dd/mm/yyyy hh24:mi:ss'), des_mensg from log_tarifacao_logistica
+where ctl_plvia = 348829
+order by dhr_event
+
+delete log_tarifacao_logistica
+where ctl_plvia = 348829
+
+
+delete log_tarifacao_logistica
+where ctl_plvia = 361416
+and ctl_event in (11,23)

@@ -1,0 +1,86 @@
+CREATE OR REPLACE
+PROCEDURE PC_COD_MACRO_ULT_INCLUIR(PNUM_ID_TERMINAL NUMBER,
+	  
+						    		       PCTL_PLVIA NUMBER,	
+						    		       PCTL_RTMOT NUMBER,
+						    		       PCTL_TRNSP NUMBER,
+						                       PDHR_INICIO NUMBER, 						    
+						                       PDHR_EVENT VARCHAR2,						    
+						                       PNOM_USER VARCHAR2)
+AS
+I_cod_macro                                                    VARCHAR2(2);
+--
+CURSOR
+ITERMINAL IS
+--
+SELECT num_mct, cod_macro_ult, to_char(dhr_macro_ult,'YYYYMMDDHH24MISS') AS dhr_macro_ult,cod_serve
+FROM POSICAO_ID_TERMINAL
+WHERE num_mct = PNUM_ID_TERMINAL
+AND to_char(dhr_macro_ult,'YYYYMMDDHH24MISS') > PDHR_INICIO;
+--
+RTERMINAL ITERMINAL%ROWTYPE;
+--
+BEGIN
+   OPEN ITERMINAL;
+   FETCH ITERMINAL INTO RTERMINAL;
+--   
+   IF ITERMINAL%NOTFOUND THEN
+      I_cod_macro := '51';	 	
+
+	UPDATE POSICAO_ID_TERMINAL SET 
+	   cod_macro_ult = I_cod_macro, 
+	   dhr_posic = TO_DATE(PDHR_EVENT,'DD/MM/YYYY HH24:MI:SS'),
+	   dhr_posic_1pr = TO_DATE(PDHR_EVENT,'DD/MM/YYYY HH24:MI:SS'),
+	   dhr_inici_rea = TO_DATE(PDHR_EVENT,'DD/MM/YYYY HH24:MI:SS'), 
+	   dhr_termi_rea = NULL,
+	   sit_mct = 1,
+	   cod_grupo_mnt = 1,
+	   cod_user = PNOM_USER,
+	   dhr_manut = SYSDATE
+	WHERE num_mct = PNUM_ID_TERMINAL;
+	--
+	COMMIT;
+	--
+	INSERT INTO mct_macro VALUES (
+	   sq_ctl_macro.nextval,
+	   PNUM_ID_TERMINAL,
+	   PCTL_TRNSP,
+	   99,
+	   SYSDATE,
+	   NULL,NULL,NULL,NULL,
+	   'MONITORADO PELA PAMCARY',
+	   PNOM_USER,
+	   SYSDATE,
+	   NULL,NULL);
+	--   
+	COMMIT;
+	--   
+   END IF;      
+--
+CLOSE ITERMINAL;
+-- 
+UPDATE PLANO_VIAGEM SET 
+   sit_plvia = 1,
+   cod_user = PNOM_USER,
+   dhr_manut = SYSDATE
+WHERE ctl_plvia = PCTL_PLVIA;
+--
+COMMIT;
+--         
+UPDATE ROTEIRO_MOTORISTA SET
+   dhr_efeti_rea = TO_DATE(PDHR_EVENT,'DD/MM/YYYY HH24:MI:SS'),
+   sit_fase_rea = 'R',
+   sta_telef = 'S',
+   cod_user = PNOM_USER,
+   dhr_manut = SYSDATE
+WHERE ctl_rtmot = PCTL_RTMOT;
+--
+COMMIT;
+--         
+UPDATE DESTINATARIO_PLANO_VIAGEM SET
+   sit_plvia = 1
+WHERE ctl_plvia = PCTL_PLVIA;                 
+--
+COMMIT;
+--
+END PC_COD_MACRO_ULT_INCLUIR;

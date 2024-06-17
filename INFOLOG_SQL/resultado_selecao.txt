@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>Encerramento de Viagens</TITLE>
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0">
+
+<FORM name="form_resultado_selecao" method="post">
+
+ <TABLE align=center border='1' cellPadding=0 cellSpacing=0>
+ 	<TR>
+ 	  <TD>
+ 	   <div align="center">
+ 	    <table border="0" cellpadding="0" width="558" height="55">
+ 	   </TD> 
+ 	</TR>  
+   
+    <TR>
+		<TD height=75 width=87><IMG alt="" height=75
+	     	src='imagens/LogoPamcary1.gif' width=180>
+	    </TD>
+        
+   		 <TD height=75 width=280><IMG alt="" height=75
+    		src="imagens/LogoMonitoramentoCargas1.jpg" width=470>
+	     </TD>
+         
+   		 <TD height=75 width=87><IMG alt="" height=75
+    		src="imagens/Truck.jpg" width=100>
+  		</TD>
+  	</TR>  	
+ </TABLE>
+    
+ <DIV>
+ <TABLE border='0'width='100%'>
+	<TR>
+   	 <TD style="HEIGHT: 8px; WIDTH: 100%" width="100%" height=13>
+   		<HR size=3 >
+     </TD>
+    </TR>
+</TABLE>
+</DIV>
+
+<TABLE width='100%'>
+<%
+	//VERIFICA O TIPO DE RASTREAMENTO
+       while(rsResultado.next())
+		{
+            nome_imagem ="";
+            ctl_plvia = rsResultado.getString("ctl_plvia");            
+   			nom_cliente = rsResultado.getString("nom_desti");
+			tipo_rastreamento = rsResultado.getString("tip_rastr");
+			dhr_inici_rea = rsResultado.getString("dhr_plvia_ini");
+			dhr_termi_rea = rsResultado.getString("dhr_plvia_ter");
+			tip_encer = rsResultado.getString("des_situa");
+
+			if(tipo_rastreamento.equals("1"))
+			{
+				nome_imagem = "satelite.jpg";
+
+			}
+			else if(tipo_rastreamento.equals("2"))
+			{
+				nome_imagem = "cartao.jpg";			
+				
+			}
+			else if(tipo_rastreamento.equals("3"))
+			{
+				nome_imagem = "fone.jpg";			
+			
+			}
+
+			if(dhr_inici_rea.substring(3,6).equals(dhr_termi_rea.substring(3,6)))
+			{
+				n_qtd_dd_inicio = dhr_inici_rea.substring(0,2);
+				n_qtd_hh_inicio = dhr_inici_rea.substring(6,8);
+				n_qtd_mm_inicio = dhr_inici_rea.substring(6,8);
+				
+				n_qtd_dd_termi = dhr_termi_rea.substring(0,2);
+				n_qtd_hh_termi = dhr_termi_rea.substring(6,8);
+				n_qtd_mm_termi = dhr_termi_rea.substring(6,8);
+				
+				//CALCULO PARA SABER O NUMERO DE DIAS
+				n_total_hh = Integer.parseInt(n_qtd_dd_termi) - Integer.parseInt(n_qtd_dd_inicio);
+
+				//TRANSFORMAÇÃO DE DIAS PARA MINUTOS 1440 MINUTOS = 24 HORAS
+				n_total_dd = n_total_hh * 1440; 
+				
+				//TRANSFORMAÇÃO DE HORAS PARA MINUTOS DA DATA INICIAL
+				n_total_mm_inicio = Integer.parseInt(n_qtd_hh_inicio) * 60; 
+				n_total_mm_inicio = n_total_mm_inicio + Integer.parseInt(n_qtd_mm_inicio);
+
+				//TRANSFORMAÇÃO DE HORAS PARA MINUTOS DA DATA FINAL				
+				n_total_mm_termi = Integer.parseInt(n_qtd_hh_termi) * 60; 
+				n_total_mm_termi = n_total_mm_termi + Integer.parseInt(n_qtd_mm_termi);				
+				
+				//ADIÇÃO
+				n_total = n_total_dd + n_total_mm_inicio + n_total_mm_termi;
+				
+				n_total = n_total /60;
+								
+			}
+ 			if(rsResultado.getString("nom_trnsp").equals(nom_trnsp))
+ 			{
+ 				out.println ("<TR>");
+ 				out.println ("<TD bgColor='lightyellow' width='10%'><font color='white' size='1'></font></TD>");
+ 				out.println ("</TR>");
+ 				
+ 			}
+ 			else
+ 			{
+ 				nom_trnsp = rsResultado.getString("nom_trnsp");
+				out.println ("<TR>");
+				out.println ("<TD bgColor='indigo' colspan='6'><font color='white' size='1'><B> Transportadora: " + nom_trnsp + "</B></font></TD>");
+				out.println ("</TR>");				
+
+				out.println ("<TR>");								
+//			Meio
+				out.println("<TD bgColor=indigo width='5%'><P align=center> <STRONG><FONT face='MS Sans Serif' size=1 color=white>Meio</FONT></STRONG></P></TD>");
+
+//	        Cliente
+		        out.println("<TD bgColor=indigo width='10%'><P align=center><STRONG><FONT color=white face='MS Sans Serif' size=1>Cliente</FONT></STRONG></P></TD>");
+        
+//       		Dhr real de saida
+				out.println("<TD bgColor=indigo width='10%'><P align=center><STRONG><FONT color=white face='MS Sans Serif' size=1>Dt. Hr. Real Saída</FONT></STRONG></P></TD>");
+        
+//       		Dhr real de chegada 
+				out.println("<TD bgColor=indigo width='10%'><P align=center><STRONG><FONT color=white face='MS Sans Serif' size=1>Dt. Hr. Real Chegada</FONT></STRONG></P></TD>");
+
+//			Tipo de encerramento
+				out.println("<TD bgColor=indigo width='10%'><P align=center><STRONG><FONT color=white face='MS Sans Serif' size=1>Tipo Encerramento</FONT></STRONG></P></TD>");		
+		
+//			Prazo de entrega
+				out.println("<TD bgColor=indigo width='10%'><P align=center><STRONG><FONT color=white face='MS Sans Serif' size=1>Prazo Real Entrega.</FONT></STRONG></P></TD>");		
+				
+//	    	Fim da definição de cabeçalho
+				out.println("</TR>");					
+				
+			}	
+    		out.println("<TR>");			
+ 			out.println ("<TD bgColor='lightyellow' width='5%'><font color='blue' size='1'><center><IMG SRC='imagens/" + nome_imagem + "' width=32 height=28></center></font></TD>");
+			out.println("<TD bgColor='lightyellow' width='10%'><font color='blue' size='1'><center><A HREF = 'Posicao_Motorista.jsp?ctl_plvia=" + ctl_plvia  +  "'>" + nom_cliente + "</A> </center></font></TD>");						
+			out.println("<TD bgColor='lightyellow' width='10%'><font color='blue' size='1'><center>" + dhr_inici_rea +  "</center></font></TD>");
+			out.println("<TD bgColor='lightyellow' width='10%'><font color='blue' size='1'><center>" + dhr_termi_rea + "</center></font></TD>");			
+			out.println("<TD bgColor='lightyellow' width='10%'><font color='blue' size='1'><center>" + tip_encer + "</center></font></TD>");
+			out.println("<TD bgColor='lightyellow' width='10%'><font color='blue' size='1'><center>" + n_total + " hrs." + "</center></font></TD>");				
+			out.println ("</TR>");
+			
+		}	
+	%>
+</TABLE>	
+<INPUT TYPE='BUTTON' NAME='btn_voltar' VALUE='Voltar' onClick='JavaScript:history.back()'>
+</FORM>
+</BODY>
+</HTML>

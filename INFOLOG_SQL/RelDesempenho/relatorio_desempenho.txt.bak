@@ -1,0 +1,100 @@
+
+
+select to_char(dhr_inclu, 'dd/mm/yyyy') AS dat_inclu,
+       ctl_plvia, 
+       FC_ANALISE_PLVIA_PM( ctl_plvia ) AS P10,
+       FC_ANALISE_PLVIA( ctl_plvia, 20) AS P20,
+       FC_ANALISE_PLVIA( ctl_plvia, 30) AS P30,
+       FC_ANALISE_PLVIA( ctl_plvia, 40) AS P40
+from plano_viagem pv
+where ctl_opera_tip = 13
+  and to_char(dhr_inclu, 'yyyymmdd') = '20020701'
+
+
+select FC_VINCULADO_NOM_GUERR( ctl_trnsp ) AS Transportadora,
+       to_char(dhr_inclu, 'dd/mm/yyyy') AS dat_inclu,
+       ctl_plvia,
+       FC_ID_VEICULO( ctl_plvia ) AS ID,
+       FC_VINCULADO_NOM_GUERR( ctl_remet ) AS LED,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10112) AS M51,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10212) AS M52,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10312) AS M53,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10712) AS M57,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 10412) AS M54,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20110) AS PC,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20120) AS PB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20130) AS DGT,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20210) AS SIR,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20220) AS BLQ,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20230) AS TB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20140) AS OBC,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 20240) AS GPS,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 40000) AS PP,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30210) AS A_OBC_BP,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30220) AS A_OBC_CA,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30230) AS A_OBC_DE,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30240) AS A_OBC_PB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30250) AS A_OBC_TB,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30260) AS A_OBC_AT,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30410) AS V_PRO_ME,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30420) AS V_PRO_EQ,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30430) AS V_FAT_CA,
+       FC_ANALISE_PLVIA_ITEM( ctl_plvia, 30510) AS E_OPE
+from plano_viagem pv
+where ctl_opera_tip = 13
+  and ctl_trnsp = 27563
+  and sit_plvia <> 10
+  and to_char(dhr_inclu, 'yyyymmdd') >= '20020701'
+order by ctl_trnsp, dhr_inclu
+
+
+select to_char(pv.dhr_inclu, 'dd/mm/yyyy') AS anomes_ref,
+       'tra'||pv.ctl_trnsp As ctl_trnsp,
+       FC_VINCULADO_NOM_GUERR( pv.ctl_trnsp ) AS Transportadora,
+       pv.ctl_plvia,
+       'pro'||NVL(pv.ctl_empre_equ,0) As Provedor,
+       'id'||NVL(FC_ID_VEICULO( pv.ctl_plvia ), 0 ) AS ID,
+       'oco'||apv.cod_ocorr As cod_ocorr,
+       'rem'||pv.ctl_remet As ctl_remet, FC_VINCULADO_NOM_GUERR( pv.ctl_remet ) AS LED,
+       'pra'||pr.cod_praca AS cod_praca_desti, pr.des_praca AS des_praca_desti, uf.sig_unfed AS sig_unfed_desti,
+       mpv.ctl_motot, mo.nom_vincd as Motorista,
+       count(*) AS Qtd_ocorr
+from plano_viagem pv, analise_plano_viagem apv, motorista_plano_viagem mpv,
+     vinculado mo, endereco_vinculado ev, praca pr, unidade_federal uf
+where pv.ctl_opera_tip IN ( 13, 3 )
+  and pv.tip_rastr = 1
+  and pv.sit_plvia <> 10
+  and to_char(pv.dhr_inclu, 'yyyymm') BETWEEN '200210' AND '200210'
+  and pv.ctl_plvia = apv.ctl_plvia
+  and apv.cod_ocorr in ( 10112, 10122, 10212, 10222, 10312, 10322, 10412, 10422, 10712, 10722,
+                         2011, 2012, 2013, 2014, 2021, 2022, 2023, 2024,
+                         3011, 3012, 3013,  40, 50,
+                         3021, 3022, 3023, 3024, 3025, 3031, 3032, 3041, 3042, 3043, 3026, 3027, 3091, 
+                         3071, 3072, 3073, 3074 )
+  and pv.ctl_plvia = mpv.ctl_plvia
+  and mpv.ord_motot = 1
+  and mpv.ctl_motot = mo.ctl_vincd
+  and pv.ctl_remet = ev.ctl_vincd(+)
+  and ev.cod_praca = pr.cod_praca(+)
+  and pr.cod_unfed = uf.cod_unfed(+)               
+group by to_char(pv.dhr_inclu, 'dd/mm/yyyy'),
+         'tra'||pv.ctl_trnsp,
+         FC_VINCULADO_NOM_GUERR( pv.ctl_trnsp ),
+         pv.ctl_plvia,
+         pv.ctl_empre_equ,
+         'id'||FC_ID_VEICULO( pv.ctl_plvia ),
+         'oco'||apv.cod_ocorr,
+         'rem'||pv.ctl_remet, FC_VINCULADO_NOM_GUERR( pv.ctl_remet ),
+         'pra'||pr.cod_praca, pr.des_praca, uf.sig_unfed,
+         mpv.ctl_motot, mo.nom_vincd
+
+
+
+select count(*)
+from plano_viagem pv, analise_plano_viagem apv
+where pv.ctl_opera_tip in ( 13, 3 )
+  and pv.tip_rastr = 1
+  and to_char(pv.dhr_inclu,'yyyymm') = '200211'
+  and pv.ctl_plvia = apv.ctl_plvia
+  and apv.cod_ocorr = 50  
+

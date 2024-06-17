@@ -1,0 +1,193 @@
+CREATE OR REPLACE PROCEDURE SUPERVISOR.pc_mntcarga_telerisco3
+AS
+a_mntcarga_ultimo_process UTL_FILE.FILE_TYPE;
+a_mntcarga_telerisco      UTL_FILE.FILE_TYPE;
+I_buffer                  VARCHAR2(1000);
+I_file                    VARCHAR2(40);
+I_file_dhr_inicio         VARCHAR2(14);
+I_file_dhr_termino        VARCHAR2(14);
+I_CpfMotorista            VARCHAR2(11);
+I_DatInclusao             VARCHAR2(8);
+I_TipoMonitoramento       VARCHAR2(15);
+I_UfDestino               NUMBER;
+I_DhrInicioReal           VARCHAR2(08);
+I_Nreg                    NUMBER;
+i                         NUMBER := 0;
+pdhr_termino              VARCHAR2(16);
+pdt_ultimo_process        VARCHAR2(100);
+I_OrigemInfo              VARCHAR2(10);
+--
+CURSOR c1 is
+SELECT *
+  FROM (
+    SELECT
+           to_char(nvl(d.nr_documento, ' '))                           AS cpfmotorista
+          ,nvl(upper(p.nome), ' ')                                     AS nomemotorista
+          ,nvl(to_char(v.id_empresa), ' ')                             AS codtransportadora
+          ,nvl(to_char(de.nr_documento), ' ')                          AS cnpjtransportadora
+          ,nvl(upper(e.nome), ' ')                                     AS nometransportadora
+          ,nvl(REPLACE(v.placa_veiculo, '-', ''), ' ')                 AS numplaca
+          ,nvl(to_char((SELECT cod_unfed
+                         FROM supervisor.unidade_federal
+                        WHERE cod_pais = 999
+                          AND sig_unfed = e1.no_estado)), '0') AS uforigem
+          ,' '                                                          AS ctldestino
+          ,nvl(to_char((SELECT cod_unfed
+                         FROM supervisor.unidade_federal
+                        WHERE cod_pais = 999
+                          AND sig_unfed = e2.no_estado)), '0') AS ufdestino
+          ,nvl(to_char(v.dt_partida, 'YYYYMMDD'), ' ')                 AS dhrinicioprevisto
+          ,nvl(to_char(v.dt_partida, 'YYYYMMDD'), ' ')                 AS dhrinicioreal
+          ,' '                                                         AS tipomonitoramento
+          ,nvl(to_char(v.dt_cadastro_viagem, 'YYYYMMDD'), ' ')         AS datainclusao
+          ,11                                                          AS origeminfo
+      FROM fastown.viagem@db_pamcard.US.ORACLE.COM             v
+          ,fastown.viagem_favorecido@db_pamcard.us.oracle.com vf
+          ,fastown.cidade@db_pamcard.us.oracle.com             c1
+          ,fastown.cidade@db_pamcard.us.oracle.com             c2
+          ,fastown.estado@db_pamcard.us.oracle.com             e1
+          ,fastown.estado@db_pamcard.us.oracle.com             e2
+          ,fastown.portador@db_pamcard.us.oracle.com           p
+          ,fastown.documento_portador@db_pamcard.us.oracle.com d
+          ,fastown.empresa@db_pamcard.us.oracle.com            e
+          ,fastown.documento_empresa@db_pamcard.us.oracle.com  de
+     WHERE d.id_documento_tipo   = 2
+       AND vf.ctl_tipo_fav       = 1
+       AND de.id_documento_tipo  = 1
+       AND v.id_cidade_origem    = c1.id_cidade
+       AND v.id_cidade_destino   = c2.id_cidade
+       AND e1.id_estado          = c1.id_estado
+       AND e2.id_estado          = c2.id_estado
+       AND v.id_viagem           = vf.id_viagem
+       AND p.id_portador(+)      = vf.id_portador
+       AND p.id_portador         = d.id_portador
+       AND e.id_empresa(+)       = v.id_empresa
+       AND e.id_empresa          = de.id_empresa
+       AND to_char(v.dt_partida, 'YYYYMMDDHH24MISS') BETWEEN to_char(to_date(pdt_ultimo_process,'YYYYMMDDHH24MISS')-3, 'YYYYMMDDHH24MISS') AND to_char(SYSDATE - 3, 'YYYYMMDDHH24MISS')
+     )
+     where fc_valida_cpf(NVL(cpfMotorista,' ')) = 'TRUE'
+       and cnpjTransportadora != ' '
+       and ufOrigem           != '0'
+       and ufdestino          != '0'
+     ORDER BY cpfMotorista, dataInclusao;
+--
+BEGIN
+  --
+  --ABRE ARQUIVO COM DATA DO ULTIMO PROCESSAMENTO PARA PROCESSAMENTO FORMATO YYYYMMDD
+  --
+  a_mntcarga_ultimo_process := UTL_FILE.FOPEN('/work/viagenstelerisco/','ULTIMO_PROCESSAMENTO.INI','r');
+  UTL_FILE.GET_LINE(a_mntcarga_ultimo_process, pdt_ultimo_process);
+  UTL_FILE.FCLOSE(a_mntcarga_ultimo_process);
+  --
+  --DEFINE NOME DO ARQUIVO
+  --
+  SELECT TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS')
+    INTO pdhr_termino
+    FROM dual;
+--
+  SELECT 'MTR'||pdt_ultimo_process||pdhr_termino||'.TXT'
+    INTO I_file
+    FROM dual;
+  --
+  --CRIA/ABRE ARQUIVO DE SAIDA TXT
+  --
+  a_mntcarga_telerisco := UTL_FILE.FOPEN('/work/viagenstelerisco/',I_file,'w');
+  --
+  --HEADER
+  --
+  SELECT SUBSTR(TO_CHAR(SYSDATE,'DDMMYYYYHH24MISS'),1,14) INTO I_file_dhr_inicio
+  FROM dual;
+--
+  I_buffer := RPAD('0'||I_file_dhr_inicio
+                      ||SUBSTR(pdhr_termino,1,14),144,' ') ;
+  UTL_FILE.PUT_LINE(a_mntcarga_telerisco, I_buffer);
+  --
+  --PROCESSAMENTO
+  --
+  I_Nreg := 0;
+  I_CpfMotorista := '';
+  I_DatInclusao  := '';
+--
+  FOR i IN C1 loop
+--
+    I_TipoMonitoramento := ' ';
+    begin
+         I_UfDestino := to_number(i.ufDestino);
+         I_OrigemInfo:= i.origeminfo;
+    exception
+       when others then
+         I_UfDestino := 0;
+    end;
+--
+    I_DhrInicioReal := i.dhrInicioReal;
+    IF i.dhrInicioReal = ' ' THEN
+       I_DhrInicioReal := i.dhrInicioPrevisto;
+    END IF;
+--
+    IF fc_valida_cpf(NVL(i.cpfMotorista,' ')) = 'TRUE'  AND
+       i.cnpjTransportadora != ' ' AND
+       i.ufOrigem           != '0'   AND
+       I_UfDestino          != 0   THEN
+--
+       IF i.cpfMotorista = I_CpfMotorista THEN
+          --CASO AS DATA SEJAM IGUAIS, NAO GRAVA NO ARQUIVO
+          IF i.dataInclusao != I_DatInclusao THEN
+             I_buffer := '1'||LPAD(i.cpfMotorista,11,'0')
+                            ||RPAD(i.nomeMotorista,50,' ')
+                            ||LPAD(i.cnpjTransportadora,15,'0')
+                            ||RPAD(i.nomeTransportadora,30,' ')
+                            ||RPAD(i.numPlaca,7,' ')
+                            ||LPAD(i.ufOrigem,3,'0')
+                            ||LPAD(I_UfDestino,3,'0')
+                            ||I_DhrInicioReal
+                            ||RPAD(I_TipoMonitoramento,15,' ')
+                            ||i.origemInfo;
+--
+             UTL_FILE.PUT_LINE(a_mntcarga_telerisco, I_buffer);
+             I_Nreg         := I_Nreg + 1;
+             I_CpfMotorista := i.cpfMotorista;
+             I_DatInclusao  := i.dataInclusao;
+          END IF;
+       ELSE
+          I_buffer := '1'||LPAD(i.cpfMotorista,11,'0')
+                         ||RPAD(i.nomeMotorista,50,' ')
+                         ||LPAD(i.cnpjTransportadora,15,'0')
+                         ||RPAD(i.nomeTransportadora,30,' ')
+                         ||RPAD(i.numPlaca,7,' ')
+                         ||LPAD(i.ufOrigem,3,'0')
+                         ||LPAD(I_UfDestino,3,'0')
+                         ||I_DhrInicioReal
+                         ||RPAD(I_TipoMonitoramento,15,' ')
+                         ||i.origemInfo;
+--
+          UTL_FILE.PUT_LINE(a_mntcarga_telerisco, I_buffer);
+          I_Nreg         := I_Nreg + 1;
+          I_CpfMotorista := i.cpfMotorista;
+          I_DatInclusao  := i.dataInclusao;
+       END IF;
+    END IF;
+  END LOOP;
+--
+  --TRAILER
+--
+  SELECT SUBSTR(TO_CHAR(SYSDATE,'DDMMYYYYHH24MISS'),1,14) INTO I_file_dhr_termino
+  FROM dual;
+  I_buffer := RPAD('9'||I_file_dhr_termino||LPAD(I_Nreg,10,0),144,' ');
+  UTL_FILE.PUT_LINE(a_mntcarga_telerisco, I_buffer);
+--
+  --FECHA ARQUIVO TXT
+--
+  UTL_FILE.FCLOSE(a_mntcarga_telerisco);
+--
+  --GRAVACAO DA DATA DO ULTIMO PROCESSAMENTO FORMATO YYYYMMDDHH24MISS
+--
+  a_mntcarga_ultimo_process := UTL_FILE.FOPEN('/work/viagenstelerisco/','ULTIMO_PROCESSAMENTO.INI','w');
+  UTL_FILE.PUT_LINE(a_mntcarga_ultimo_process, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'));
+  UTL_FILE.FCLOSE(a_mntcarga_ultimo_process);
+--
+EXCEPTION
+      WHEN utl_file.invalid_operation THEN
+           dbms_output.put_line('Operacao invalida no arquivo.'||'ORIGEM: '||I_OrigemInfo||'  CpfMotorista: '||I_CpfMotorista);
+           utl_file.fclose(a_mntcarga_ultimo_process);
+END pc_mntcarga_telerisco3;
+/
