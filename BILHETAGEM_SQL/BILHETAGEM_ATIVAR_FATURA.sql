@@ -102,7 +102,7 @@ and seq_numer_prs = 498011
 order by dhr_fatur desc
 */
 and f.seq_numer_fat in (
-7000329829
+7000336184, 7000326994
 )
 
 
@@ -114,7 +114,7 @@ update bilhet.TBIL_FATURA f set
 , f.NUM_MOTIV_SIT = 5 
 where 1=1 
 and f.SEQ_NUMER_FAT in (
-7000329829
+7000317294
 )
 
 COMMIT 
