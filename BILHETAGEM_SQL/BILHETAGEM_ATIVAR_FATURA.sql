@@ -91,6 +91,7 @@ select f.seq_numer_fat
 	,f.NUM_MOTIV_SIT 
 	,ms.NOM_MOTIV_SIT 
 	, f.dhr_fatur
+	,*
 from bilhet.tbil_fatura f
 , bilhet.tbil_situacao_fatura sf
 , bilhet.TBIL_MOTIVO_SITUACAO ms
@@ -102,7 +103,7 @@ and seq_numer_prs = 498011
 order by dhr_fatur desc
 */
 and f.seq_numer_fat in (
-7000336184, 7000326994
+7000333187
 )
 
 
@@ -114,7 +115,9 @@ update bilhet.TBIL_FATURA f set
 , f.NUM_MOTIV_SIT = 5 
 where 1=1 
 and f.SEQ_NUMER_FAT in (
-7000317294
+7000349422,
+7000349312
+
 )
 
 COMMIT 

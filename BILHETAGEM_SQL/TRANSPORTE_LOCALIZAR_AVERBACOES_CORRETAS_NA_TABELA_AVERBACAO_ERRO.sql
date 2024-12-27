@@ -1,0 +1,44 @@
+SELECT DISTINCT ai.CTL_AVERB
+, p.NUM_PROPT 
+, p.NUM_APOLI
+, x.nom_pesso
+, ai.sit_averb
+--, ae.TIP_ERRO
+, a.DHR_AVERB
+, a.DHR_ENTRA
+, a.DHR_ALTER 
+, p.DAT_INICI_VIG 
+,p.DAT_FIM_VIG 
+FROM APLTRANS.AVERBACAO a 
+INNER JOIN APLTRANS.AVERBACAO_INDICE ai ON ai.CTL_AVERB = a.CTL_AVERB 
+--INNER JOIN APLTRANS.AVERBACAO_ERRO ae ON ae.ctl_averb = ai.ctl_averb 
+INNER JOIN seguro.tseg_proposta_seguro p ON (p.num_propt, p.num_ramo_seg) = (ai.NUM_PROPT, ai.NUM_RAMO)
+AND p.TIP_PROPT = 1  --NOVO
+AND p.sit_tipo_prs IN (1,2,3,6) --NOVO  
+INNER JOIN pamais.tcrp_pessoa x ON x.ctl_pesso = p.CTL_CLIEN_PPS 
+WHERE a.DHR_ENTRA >='2023-01-01'
+AND a.DAT_EMBAR BETWEEN p.dat_inici_vig + 1 DAY AND p.dat_fim_vig  
+AND ai.NUM_PROPT NOT BETWEEN 55000000 AND 55999999  
+AND ai.NUM_PROPT NOT BETWEEN 999000000 AND 999999999  
+AND ai.sit_averb = 5
+AND ai.num_propt > 0
+AND p.NUM_APOLI IS NULL 
+--AND ae.tip_erro = 12
+AND ai.NUM_PROPT = 24005041
+AND p.NUM_APOLI = 5400047735
+
+
+SELECT
+	TPS.NUM_PROPT,
+	TPS.NUM_APOLI,
+	VCP.COD_DOCUM_PRI,
+	VCP.NOM_PESSO,
+	VCP.NOM_FANTS,
+	*
+FROM
+	seguro.TSEG_PROPOSTA_SEGURO tps
+INNER JOIN pamais.V_CRP_PESSOA vcp ON
+	vcp.CTL_PESSO = tps.CTL_CLIEN_PPS
+WHERE
+	num_propt IN (
+)

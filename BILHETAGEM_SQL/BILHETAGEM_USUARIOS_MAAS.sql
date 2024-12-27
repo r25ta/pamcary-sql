@@ -1,7 +1,7 @@
 
 
 /*USUARIO SISTEMA BILHETAGEM NUM_SISTE = 1021*/
-select distinct ua.COD_AUTEN_USU as USUÁRIO, pe.COD_dOcUM_pri AS DOCUMENTO, pe.NOM_PESSO as NOME, e.COD_EMAIL_USU 
+select distinct ua.COD_AUTEN_USU as USUï¿½RIO, pe.COD_dOcUM_pri AS DOCUMENTO, pe.NOM_PESSO as NOME, e.COD_EMAIL_USU 
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -14,7 +14,7 @@ and up.STA_ATIVO = 'S'
 ORDER BY NOME
 
 --HIERARQUIA
-select distinct ua.COD_AUTEN_USU as USUÁRIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISÃO, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else pamais.FC_RECUPERA_NOMHIE(varchar(vsu.VLR_CHAVE)) end as VISÃO
+select distinct ua.COD_AUTEN_USU as USUï¿½RIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISï¿½O, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else pamais.FC_RECUPERA_NOMHIE(varchar(vsu.VLR_CHAVE)) end as VISï¿½O
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -30,7 +30,7 @@ and vsu.DHR_FIM_VIG is null
 and vs.TIP_VISAO = 2
 UNION
 --CORRETOR
-select distinct ua.COD_AUTEN_USU as USUÁRIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISÃO, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else varchar(vsu.VLR_CHAVE) end as VISÃO
+select distinct ua.COD_AUTEN_USU as USUï¿½RIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISï¿½O, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else varchar(vsu.VLR_CHAVE) end as VISï¿½O
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -46,7 +46,7 @@ and vsu.DHR_FIM_VIG is null
 and vs.TIP_VISAO = 1
 UNION
 --EMPRESA
-select distinct ua.COD_AUTEN_USU as USUÁRIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISÃO, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else p1.NOM_FANTS end as VISÃO
+select distinct ua.COD_AUTEN_USU as USUï¿½RIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISï¿½O, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else p1.NOM_FANTS end as VISï¿½O
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -63,7 +63,7 @@ and vsu.DHR_FIM_VIG is null
 and vs.TIP_VISAO = 3
 UNION
 --PRODUTOR
-select distinct ua.COD_AUTEN_USU as USUÁRIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISÃO, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else p1.NOM_PESSO end as VISÃO
+select distinct ua.COD_AUTEN_USU as USUï¿½RIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, tp.DES_VISAO as TIPO_VISï¿½O, case when varchar(vsu.VLR_CHAVE) = '-1' then 'TODOS' else p1.NOM_PESSO end as VISï¿½O
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -81,7 +81,7 @@ and vsu.DHR_FIM_VIG is null
 and vs.TIP_VISAO = 7
 UNION
 --NULO
-select distinct ua.NUM_USUAR, pe.COD_dOcUM_pri AS DOCUMENTO, ua.COD_AUTEN_USU as USUÁRIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, 'SEM VISÃO' as TIPO_VISÃO, 'SEM VISÃO' VISÃO
+select distinct ua.NUM_USUAR, pe.COD_dOcUM_pri AS DOCUMENTO, ua.COD_AUTEN_USU as USUï¿½RIO, pe.NOM_PESSO as NOME, p.NOM_PERFI as PERFIL, 'SEM VISï¿½O' as TIPO_VISï¿½O, 'SEM VISï¿½O' VISï¿½O
 from maas.TMAAS_SISTEMA s 
 	inner join maas.TMAAS_PERFIL p on p.NUM_SISTE = s.NUM_SISTE
 	inner join maas.TMAAS_USUARIO_PERFIL up on up.NUM_PERFI = p.NUM_PERFI
@@ -97,7 +97,9 @@ and up.STA_ATIVO = 'S'
 and vsu.DHR_FIM_VIG is null
 and vs.TIP_VISAO is NULL
 
-SELECT * FROM PAMAIS.V_CRP_PESSOA vcp 
+SELECT * FROM PAMAIS.CRP_USUARIO 
+WHERE ctl_usuar = 5148
+5558
 
 /*PERFIS DO BILHETAGEM*/
 SELECT a.num_siste
@@ -114,10 +116,10 @@ AND b.num_siste = 1021
 
 
 select * from maas.TMAAS_USUARIO_PESSOA tup  
-where COD_DOCUM_PES = '18727132897'
+where COD_DOCUM_PES = '13781200191'
 
 select * from maas.TMAAS_USUARIO_PERFIL
-where NUM_USUAR = 4427 
+where NUM_USUAR = 5558 
 13129 -- Jenifer
 
 
@@ -126,8 +128,8 @@ WHERE MS.NUM_SISTE = MPS.NUM_SISTE
 AND MPS.NUM_PRODT = 1001
 AND MPS.NUM_SISTE = 1047
 
-SELECT * FROM MAAS.TMAAS_USUARIO_PESSOA tup 
-
+SELECT * FROM MAAS.TMAAS_USUARIO tu 
+WHERE tup.
 
 select * from maas.TMAAS_PERFIL tp 
 where NUM_PERFI in (49

@@ -24,31 +24,94 @@ and (tipotarifa2_.NUM_TARIF in (1, 2, 8, 3, 4, 5, 6, 7, 9, 10, 15, 16, 31, 32, 3
 
 
 
+SELECT
+	averbacao0_.SEQ_NUMER_AVB AS SEQ_NUME1_4_0_,
+	proposta1_.SEQ_NUMER_PRS AS SEQ_NUME1_3_1_,
+	fatura5_.SEQ_NUMER_FAT AS SEQ_NUME1_2_2_,
+	vencimento6_.SEQ_NUMER_PRS AS SEQ_NUME1_13_3_,
+	averbacaoi2_.NUM_AVERB_PAM AS NUM_AVER1_1_4_,
+	localidade3_.SEQ_NUMER_LOC AS SEQ_NUME1_16_5_,
+	localidade4_.SEQ_NUMER_LOC AS SEQ_NUME1_16_6_,
+	averbacao0_.NUM_ETAPA_AVB AS NUM_ETAP2_4_0_,
+	averbacao0_.SEQ_NUMER_PRS AS SEQ_NUME4_4_0_,
+	averbacao0_.VLR_IS AS VLR_IS3_4_0_,
+	averbacao0_1_.DHR_EMBAR AS DHR_EMBA1_0_0_,
+	averbacao0_1_.SEQ_LOCAL_DES AS SEQ_LOC10_0_0_,
+	averbacao0_1_.STA_AVARI AS STA_AVAR2_0_0_,
+	averbacao0_1_.IDT_TARIF AS IDT_TARI3_0_0_,
+	averbacao0_1_.STA_FLUVI AS STA_FLUV4_0_0_,
+	averbacao0_1_.NUM_AVERB_PAM AS NUM_AVE11_0_0_,
+	averbacao0_1_.SEQ_LOCAL_INT AS SEQ_LOC12_0_0_,
+	averbacao0_1_.SEQ_LOCAL_ORI AS SEQ_LOC13_0_0_,
+	averbacao0_1_.STA_PERNA_DES AS STA_PERN5_0_0_,
+	averbacao0_1_.STA_PERNA_ORI AS STA_PERN6_0_0_,
+	averbacao0_1_.IDT_CARGA_DSC AS IDT_CARG7_0_0_,
+	averbacao0_1_.TIP_ISENC_SEG AS TIP_ISEN8_0_0_,
+	averbacao0_1_.IDT_VEICU AS IDT_VEIC9_0_0_,
+	proposta1_.CTL_PEJUR_CIA AS CTL_PEJU2_3_1_,
+	proposta1_.NUM_COBER_BAS AS NUM_COBE3_3_1_,
+	proposta1_.CTL_PESSO_CLI AS CTL_PESS4_3_1_,
+	proposta1_.DAT_FIM_VIG AS DAT_FIM_5_3_1_,
+	proposta1_.NUM_APOLI AS NUM_APOL6_3_1_,
+	proposta1_.NUM_PERIO AS NUM_PERI7_3_1_,
+	proposta1_.NUM_RAMO_SEG AS NUM_RAMO8_3_1_,
+	proposta1_.NUM_ETAPA_PRS AS NUM_ETAP9_3_1_,
+	proposta1_.TIP_AVERB AS TIP_AVE10_3_1_,
+	proposta1_.TIP_NEGOC AS TIP_NEG11_3_1_,
+	fatura5_.DHR_FATUR AS DHR_FATU2_2_2_,
+	fatura5_.DAT_VENCI_FAT AS DAT_VENC3_2_2_,
+	fatura5_.NUM_MES_CPT AS NUM_MES_4_2_2_,
+	fatura5_.SIT_FATUR AS SIT_FATU5_2_2_,
+	fatura5_.SEQ_NUMER_PRS AS SEQ_NUME6_2_2_,
+	fatura5_.SEQ_NUMER_PRS AS SEQ_NUME6_3_0__,
+	fatura5_.SEQ_NUMER_FAT AS SEQ_NUME1_2_0__,
+	vencimento6_.NUM_DIA_VEC AS NUM_DIA_2_13_3_,
+	vencimento6_.NUM_PERIO_FAT AS NUM_PERI3_13_3_,
+	averbacaoi2_.SIT_TRANS AS SIT_TRAN2_1_4_,
+	averbacaoi2_.VLR_EMBAR_TOT AS VLR_EMBA3_1_4_,
+	averbacaoi2_.VLR_PAMTX AS VLR_PAMT4_1_4_,
+	localidade3_.COD_IDENT_PAD AS COD_IDEN2_16_5_,
+	localidade3_.SEQ_LOCAL_PAI AS SEQ_LOCA6_16_5_,
+	localidade3_.STA_NINFO AS STA_NINF3_16_5_,
+	localidade3_.STA_URSUB AS STA_URSU4_16_5_,
+	localidade3_.TIP_LOCAL AS TIP_LOCA5_16_5_,
+	localidade4_.COD_IDENT_PAD AS COD_IDEN2_16_6_,
+	localidade4_.SEQ_LOCAL_PAI AS SEQ_LOCA6_16_6_,
+	localidade4_.STA_NINFO AS STA_NINF3_16_6_,
+	localidade4_.STA_URSUB AS STA_URSU4_16_6_,
+	localidade4_.TIP_LOCAL AS TIP_LOCA5_16_6_
+FROM
+	BILHET.TBIL_RELAC_AVERB_PROPT averbacao0_
+LEFT OUTER JOIN BILHET.TBIL_AVERBACAO averbacao0_1_ ON
+	averbacao0_.SEQ_NUMER_AVB = averbacao0_1_.SEQ_NUMER_AVB
+INNER JOIN BILHET.TBIL_PROPOSTA proposta1_ ON
+	averbacao0_.SEQ_NUMER_PRS = proposta1_.SEQ_NUMER_PRS
+LEFT OUTER JOIN BILHET.TBIL_FATURA fatura5_ ON
+	proposta1_.SEQ_NUMER_PRS = fatura5_.SEQ_NUMER_PRS
+LEFT OUTER JOIN BILHET.TBIL_VENCIMENTO_FATURA_PROPT vencimento6_ 
+	ON
+	fatura5_.SEQ_NUMER_PRS = vencimento6_.SEQ_NUMER_PRS
+INNER JOIN BILHET.TBIL_AVERBACAO_INDICE averbacaoi2_ ON
+	averbacao0_1_.NUM_AVERB_PAM = averbacaoi2_.NUM_AVERB_PAM
+LEFT OUTER JOIN BILHET.V_BIL_LOCALIDADE localidade3_ ON
+	averbacao0_1_.SEQ_LOCAL_ORI = localidade3_.SEQ_NUMER_LOC
+LEFT OUTER JOIN BILHET.V_BIL_LOCALIDADE localidade4_ ON
+	averbacao0_1_.SEQ_LOCAL_DES = localidade4_.SEQ_NUMER_LOC
+WHERE
+	averbacao0_1_.DHR_EMBAR <= '2024-08-31 23:59:59'
+	AND proposta1_.NUM_APOLI = 3836900023255
+	AND averbacao0_.NUM_ETAPA_AVB = 1
+	AND proposta1_.NUM_APOLI>0
+	AND proposta1_.NUM_PERIO = 3
+	AND proposta1_.NUM_RAMO_SEG = 2
+ORDER BY
+	averbacao0_.SEQ_NUMER_AVB,
+	fatura5_.SEQ_NUMER_FAT
 
-select averbacao0_.SEQ_NUMER_AVB as SEQ_NUME1_4_0_
-	, proposta1_.SEQ_NUMER_PRS as SEQ_NUME1_3_1_
-	, fatura5_.SEQ_NUMER_FAT as SEQ_NUME1_2_2_
-	, vencimento6_.SEQ_NUMER_PRS as SEQ_NUME1_13_3_
-	, averbacaoi2_.NUM_AVERB_PAM as NUM_AVER1_1_4_
-	, localidade3_.SEQ_NUMER_LOC as SEQ_NUME1_16_5_, localidade4_.SEQ_NUMER_LOC as SEQ_NUME1_16_6_, averbacao0_.NUM_ETAPA_AVB as NUM_ETAP2_4_0_, averbacao0_.SEQ_NUMER_PRS as SEQ_NUME4_4_0_, averbacao0_.VLR_IS as VLR_IS3_4_0_, averbacao0_1_.DHR_EMBAR as DHR_EMBA1_0_0_, averbacao0_1_.SEQ_LOCAL_DES as SEQ_LOC10_0_0_, averbacao0_1_.STA_AVARI as STA_AVAR2_0_0_, averbacao0_1_.IDT_TARIF as IDT_TARI3_0_0_, averbacao0_1_.STA_FLUVI as STA_FLUV4_0_0_, averbacao0_1_.NUM_AVERB_PAM as NUM_AVE11_0_0_, averbacao0_1_.SEQ_LOCAL_INT as SEQ_LOC12_0_0_, averbacao0_1_.SEQ_LOCAL_ORI as SEQ_LOC13_0_0_, averbacao0_1_.STA_PERNA_DES as STA_PERN5_0_0_, averbacao0_1_.STA_PERNA_ORI as STA_PERN6_0_0_, averbacao0_1_.IDT_CARGA_DSC as IDT_CARG7_0_0_, averbacao0_1_.TIP_ISENC_SEG as TIP_ISEN8_0_0_, averbacao0_1_.IDT_VEICU as IDT_VEIC9_0_0_, proposta1_.CTL_PEJUR_CIA as CTL_PEJU2_3_1_, proposta1_.NUM_COBER_BAS as NUM_COBE3_3_1_, proposta1_.CTL_PESSO_CLI as CTL_PESS4_3_1_, proposta1_.DAT_FIM_VIG as DAT_FIM_5_3_1_, proposta1_.NUM_APOLI as NUM_APOL6_3_1_, proposta1_.NUM_PERIO as NUM_PERI7_3_1_, proposta1_.NUM_RAMO_SEG as NUM_RAMO8_3_1_, proposta1_.NUM_ETAPA_PRS as NUM_ETAP9_3_1_, proposta1_.TIP_AVERB as TIP_AVE10_3_1_, proposta1_.TIP_NEGOC as TIP_NEG11_3_1_, fatura5_.DHR_FATUR as DHR_FATU2_2_2_, fatura5_.DAT_VENCI_FAT as DAT_VENC3_2_2_, fatura5_.NUM_MES_CPT as NUM_MES_4_2_2_, fatura5_.SIT_FATUR as SIT_FATU5_2_2_, fatura5_.SEQ_NUMER_PRS as SEQ_NUME6_2_2_, fatura5_.SEQ_NUMER_PRS as SEQ_NUME6_3_0__, fatura5_.SEQ_NUMER_FAT as SEQ_NUME1_2_0__, vencimento6_.NUM_DIA_VEC as NUM_DIA_2_13_3_, vencimento6_.NUM_PERIO_FAT as NUM_PERI3_13_3_, averbacaoi2_.SIT_TRANS as SIT_TRAN2_1_4_, averbacaoi2_.VLR_EMBAR_TOT as VLR_EMBA3_1_4_, averbacaoi2_.VLR_PAMTX as VLR_PAMT4_1_4_, localidade3_.COD_IDENT_PAD as COD_IDEN2_16_5_, localidade3_.SEQ_LOCAL_PAI as SEQ_LOCA6_16_5_, localidade3_.STA_NINFO as STA_NINF3_16_5_, localidade3_.STA_URSUB as STA_URSU4_16_5_, localidade3_.TIP_LOCAL as TIP_LOCA5_16_5_, localidade4_.COD_IDENT_PAD as COD_IDEN2_16_6_, localidade4_.SEQ_LOCAL_PAI as SEQ_LOCA6_16_6_, localidade4_.STA_NINFO as STA_NINF3_16_6_, localidade4_.STA_URSUB as STA_URSU4_16_6_, localidade4_.TIP_LOCAL as TIP_LOCA5_16_6_ 
-from BILHET.TBIL_RELAC_AVERB_PROPT averbacao0_ 
-	left outer join BILHET.TBIL_AVERBACAO averbacao0_1_ on averbacao0_.SEQ_NUMER_AVB=averbacao0_1_.SEQ_NUMER_AVB 
-	inner join BILHET.TBIL_PROPOSTA proposta1_ on averbacao0_.SEQ_NUMER_PRS=proposta1_.SEQ_NUMER_PRS 
-	left outer join BILHET.TBIL_FATURA fatura5_ on proposta1_.SEQ_NUMER_PRS=fatura5_.SEQ_NUMER_PRS 
-	left outer join BILHET.TBIL_VENCIMENTO_FATURA_PROPT vencimento6_ 
-	on fatura5_.SEQ_NUMER_PRS=vencimento6_.SEQ_NUMER_PRS 
-	inner join BILHET.TBIL_AVERBACAO_INDICE averbacaoi2_ on averbacao0_1_.NUM_AVERB_PAM=averbacaoi2_.NUM_AVERB_PAM 
-	left outer join BILHET.V_BIL_LOCALIDADE localidade3_ on averbacao0_1_.SEQ_LOCAL_ORI=localidade3_.SEQ_NUMER_LOC 
-	left outer join BILHET.V_BIL_LOCALIDADE localidade4_ on averbacao0_1_.SEQ_LOCAL_DES=localidade4_.SEQ_NUMER_LOC 
-where averbacao0_1_.DHR_EMBAR<= '2021-11-30 23:59:59'
-and proposta1_.NUM_APOLI=5400027717
-and averbacao0_.NUM_ETAPA_AVB=1 
-and proposta1_.NUM_APOLI>0 
-and proposta1_.NUM_PERIO=3 
-and proposta1_.NUM_RAMO_SEG=1
-ORDER BY  averbacao0_.SEQ_NUMER_AVB, fatura5_.SEQ_NUMER_FAT
-
-/**AVERBAÇÕES CUSTOMIZADAS**/
+	
+	
+	
+/**AVERBAï¿½ï¿½ES CUSTOMIZADAS**/
 select averbacao0_.SEQ_NUMER_AVB as SEQ_NUME1_4_0_
 	, proposta1_.SEQ_NUMER_PRS as SEQ_NUME1_3_1_
 	, averbacaoi2_.NUM_AVERB_PAM as NUM_AVER1_1_4_
