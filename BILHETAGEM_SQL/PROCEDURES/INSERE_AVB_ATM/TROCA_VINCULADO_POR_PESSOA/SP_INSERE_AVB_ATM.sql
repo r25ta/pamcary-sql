@@ -1,3 +1,5 @@
+--30-12-2024 SUBSTITUICAO DAS TABELAS DE:VINCULADO E DOC_VINCULADO PARA PESSOA
+--30-12-2024 SUBSTITUICAO DA TABELA DE: APOLICE PARA: PROPOSTA_SEGURO
 CREATE OR REPLACE PROCEDURE DBPROD.SP_INSERE_AVB_ATM
     (IN V_CTL_ATM BIGINT) RESULT SETS 1
 ---MODIFIES SQL DATA
@@ -598,9 +600,9 @@ WHERE
                 SELECT A.CTL_AVERB
                 FROM TAVERBACAO_INDICE A,
                     TAVERBACAO B,
-                    TDOC_VINCULADO C
+                    CRP_PESSOA P
                 WHERE A.CTL_AVERB = B.CTL_AVERB
-                    AND A.CTL_VINCD_SED = C.CTL_VINCD
+                    AND A.CTL_PESSO = P.CTL_PESSO
                     AND B.COD_MANIF = X_COD_DUV
                     AND A.CTL_PESSO = X_SEG_DUP
                     AND B.DAT_EMBAR = DATE (c_atm.DHR_EMBAR)
@@ -784,7 +786,7 @@ WHERE
         --
         -- DHR_ALTER
         SET X_DHR_ALTER = (CURRENT_TIMESTAMP);
-        --ANTIGO
+        --ALTERAR REGRA ANTIGA
         --VINCULADO
         -- Seleciona segurado CTL_VINCD
         SET X_CTL_VINCD =
@@ -811,9 +813,10 @@ WHERE
             FETCH FIRST 1 ROW ONLY );
 
         --
-        --
+        --REGRA ALTERADA PARA TABELA CRP_PESSOA
         IF
-            X_CTL_VINCD IS NULL
+            --X_CTL_VINCD IS NULL
+            X_CTL_PESSO IS NULL
         THEN
             INSERT INTO TRELAC_SITUA_AVERB_ATM
                 (
@@ -2073,12 +2076,16 @@ WHERE
         --
         --
         -- Seleciona Cóe IsençDDR)
+        --ALTERAR REGRA ANTIGA
         IF
              (c_atm.COD_ISENC IS NULL)
             AND (c_atm.COD_RAMO = 54)
         THEN
             SET X_STA_COBER_RDC =
             (
+                /*
+                --REGRA ANTIGA
+                --TABELA APOLICE
                 SELECT
                     STA_COBER_RDC
                 FROM
@@ -2091,6 +2098,18 @@ WHERE
                 ORDER BY
                     NUM_APOLI DESC
                 FETCH FIRST 1 ROW ONLY );
+                */
+                --REGRA NOVA
+                --SEG_PROPOSTA_SEGURO
+                SELECT STA_COBER_RDC FROM SEG_PROPOSTA_SEGURO 
+                WHERE CTL_CLIEN_PPS = X_CTL_PESSO
+                AND TIP_PROPT = 1
+                AND sit_tipo_prs IN (1, 2, 3, 6, 98)
+                AND DAT_BAIXA_APO IS NOT NULL
+                AND NUM_RAMO_SEG      = 1
+                AND NUM_APOLI     <> 0
+                ORDER BY NUM_APOLI DESC
+                FETCH FIRST 1 ROW ONLY 
 
 
             --
@@ -2166,57 +2185,6 @@ WHERE
         END IF;
 
 
-        --
-        --
-/*REGRA TRANSFERIDA PARA OUTRO PONTO
-        SET X_DUPLI2 =
-        (
-            SELECT
-                A.CTL_AVERB
-            FROM
-                TAVERBACAO_INDICE A,
-                TAVERBACAO        B,
-                TDOC_VINCULADO    C
-            WHERE
-                A.CTL_AVERB     = B.CTL_AVERB
-            AND A.CTL_VINCD_SED = C.CTL_VINCD
-            AND B.COD_MANIF     = X_COD_DUV
-            AND B.DAT_EMBAR     = DATE (c_atm.DHR_EMBAR) --                      AND C.COD_DOCUM = c_atm.COD_CNPJ_SEG
-            AND A.NUM_RAMO      = X_NUM_RAMO
-            AND B.NUM_PRACA_ORI = X_COD_PRACA_ORI
-            AND B.VLR_EMBAR     = c_atm.VLR_MERCA
-            AND A.SIT_AVERB NOT IN(3)
-            FETCH FIRST 1 ROW ONLY );
-
-
-        --
-        --
-        -- Verifica Duplicidade sem DANFE
-        IF
-            X_DUPLI2 IS NOT NULL
-        THEN
-            INSERT INTO TRELAC_SITUA_AVERB_ATM
-                (
-                    SIT_IMPOR_ATM,
-                    CTL_ATM      ,
-                    DHR_ALTER
-                )
-            VALUES
-                (
-                    26       ,
-                    V_CTL_ATM,
-                    CURRENT TIMESTAMP
-                )
-            ;
-
-
-            --
-            --
-        END IF;
-
-
-        --
-*/        --
         SET X_ERROS =
         (
             SELECT
@@ -2265,9 +2233,12 @@ WHERE
             --
             SET X_NUM_PROPT = null;
 
-
+            
             IF
-                X_CTL_VINCD    = 500008
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 500008
+                --REGRA NOVA
+                X_CTL_PESSO    = 15215
                 AND X_NUM_RAMO = 1
             THEN -- Seleciona num_propt
                 SET X_NUM_PROPT = 22000891;
@@ -2279,10 +2250,11 @@ WHERE
 
             END IF;
 
-
-            ---
             IF
-                X_CTL_VINCD    = 500008
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 500008
+                --REGRA NOVA
+                X_CTL_PESSO    = 15215
                 AND X_NUM_RAMO = 3
             THEN -- Seleciona num_propt
                 SET X_NUM_PROPT = 22000893;
@@ -2294,9 +2266,11 @@ WHERE
 
             END IF;
 
-
             IF
-                X_CTL_VINCD    = 518946
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 518946
+                --REGRA NOVA
+                X_CTL_PESSO      = 517733
                 AND X_NUM_RAMO = 3
             THEN -- Seleciona num_propt
                 SET X_NUM_PROPT = 21005984;
@@ -2307,9 +2281,11 @@ WHERE
 
             END IF;
 
-
             IF
-                X_CTL_VINCD    = 518946
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 518946
+                --REGRA NOVA
+                X_CTL_PESSO      = 517733
                 AND X_NUM_RAMO = 1
             THEN -- Seleciona num_propt
                 SET X_NUM_PROPT = 22005871;
@@ -2320,9 +2296,11 @@ WHERE
 
             END IF;
 
-
             IF
-                X_CTL_VINCD    = 2561
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 2561
+                --REGRA NOVA
+                X_CTL_PESSO    = 16674
                 AND X_NUM_RAMO = 1
             THEN -- Seleciona num_propt
                 SET X_NUM_PROPT = 22007629;
@@ -2334,9 +2312,11 @@ WHERE
                 --
             END IF;
 
-
             IF
-                X_CTL_VINCD    = 2561
+                --ALTERAR REGRA ANTIGA
+                --X_CTL_VINCD    = 2561
+                --REGRA NOVA
+                X_CTL_PESSO    = 16674
                 AND X_NUM_RAMO = 3
             THEN
                 SET X_NUM_PROPT = 22007630;
